@@ -1,0 +1,164 @@
+/* - COLORS - */
+/* - FONTS - */
+/* - SEARCH PANEL - */
+body {
+  background-color: #fdfdfd;
+}
+
+.search-panel {
+  background-color: white;
+  width: 90vw;
+  margin: auto;
+}
+
+.search-panel__btn {
+  margin-top: 2em;
+  width: 100%;
+  height: 3em;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #fa8451;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.search-input {
+  padding: 1em;
+  margin-top: 2em;
+  width: 100%;
+}
+
+.text-input__input {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  width: 100%;
+  height: 2em;
+}
+
+.text-input__input input {
+  border: none;
+  margin-left: 0.5em;
+  width: calc(100% - 0.5em);
+  height: 100%;
+  font-size: 1.2em;
+  background-color: transparent;
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  height: 2em;
+  background-color: transparent;
+  border: 1px solid #cfcfcf;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  height: 100%;
+  padding-left: 0.5em;
+  text-align: left;
+  font-size: 1.2em;
+  background-color: transparent;
+  border: none;
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.dropdown-contents {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ededed;
+  width: 100%;
+  left: 0;
+}
+
+.dropdown-item button {
+  padding: 0.5em 0em 0.5em 0.5em;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.dropdown-item button:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.label {
+  text-transform: uppercase;
+  font-family: "Helvetica", sans-serif;
+  font-weight: 500;
+  font-size: 0.65em;
+  letter-spacing: 0.05em;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.tabs button {
+  position: relative;
+  padding: 8px;
+  border: none;
+  font-size: 0.75em;
+}
+
+.tabs button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.tabs button:focus {
+  outline: 0px;
+}
+
+.tabs button svg {
+  position: absolute;
+  left: 0;
+  bottom: -0.5em;
+}
+
+.tabs button svg rect {
+  transition: width 0.25s ease-in-out;
+}
+
+.tab--active {
+  background-color: #fff;
+}
+
+.tab--active svg rect {
+  fill: #fa8451;
+  width: 100%;
+}
+
+.tab--inactive {
+  background-color: #ededed;
+  opacity: 0.7;
+}
+
+.tab--inactive svg rect {
+  fill: none;
+  width: 0%;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
