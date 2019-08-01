@@ -17,7 +17,7 @@ const Dropdown = props => {
   };
 
   return (
-    <div className="dropdown">
+    <div className={`dropdown ${props.className}`}>
       <button
         className="dropdown-toggle"
         id={props.id}
@@ -30,14 +30,18 @@ const Dropdown = props => {
       {isOpen ? (
         <div className="dropdown-contents">
           <ul>
-            {props.items.map((item, index) => {
-              //Map array of props items (objects) to display dropdown items
-              return (
-                <li key={index} className="dropdown-item">
-                  <button onClick={() => handleSelection(item)}>{item}</button>
-                </li>
-              );
-            })}
+            {props.items.length > 0
+              ? props.items.map((item, index) => {
+                  //Map array of props items (objects) to display dropdown items
+                  return (
+                    <li key={index} className="dropdown-item">
+                      <button onClick={() => handleSelection(item)}>
+                        {item}
+                      </button>
+                    </li>
+                  );
+                })
+              : "no"}
           </ul>
         </div>
       ) : (

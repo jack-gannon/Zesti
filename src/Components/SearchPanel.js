@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import Tabs from "./Tabs";
 import SearchInput from "./SearchInput";
 
-const SearchPanel = () => {
-  const [criteria, setCriteria] = useState("Recipe");
-  const [searchValue, setSearchValue] = useState("search value");
-
+const SearchPanel = props => {
+  const handleTabSelect = item => {
+    props.setCriteria(item);
+    props.setSearchValue("");
+  };
   return (
     <div className="search-panel">
       <Tabs
         items={["Recipe", "Category", "Ingredient", "Region"]}
-        action={setCriteria}
-        active={criteria}
+        action={handleTabSelect}
+        active={props.criteria}
       />
-      <h1>{searchValue}</h1> | <h2>{criteria}</h2>
-      <SearchInput active={criteria} action={setSearchValue} />
+
+      <SearchInput
+        active={props.criteria}
+        action={props.setSearchValue}
+        handleSearchRequest={props.handleSearchRequest}
+        categories={props.categories}
+        regions={props.regions}
+        onChange={props.onChange}
+      />
     </div>
   );
 };

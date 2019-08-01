@@ -2,7 +2,7 @@
 /* - FONTS - */
 /* - SEARCH PANEL - */
 body {
-  background-color: #fdfdfd;
+  background-color: #f9f9f9;
 }
 
 .search-panel {
@@ -74,7 +74,10 @@ body {
   background-color: #fff;
   border: 1px solid #ededed;
   width: 100%;
+  max-height: 40vh;
+  overflow: scroll;
   left: 0;
+  box-shadow: 0px 8px 18px #ededed;
 }
 
 .dropdown-item button {
@@ -93,11 +96,13 @@ body {
 }
 
 .label {
+  display: inline-block;
   text-transform: uppercase;
   font-family: "Helvetica", sans-serif;
   font-weight: 500;
   font-size: 0.65em;
   letter-spacing: 0.05em;
+  margin-bottom: 1em;
 }
 
 .tabs {
@@ -151,13 +156,55 @@ body {
   width: 0%;
 }
 
+/* Result */
+.search-results {
+  width: 90vw;
+  margin: 1em auto 1em auto;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 0.25em;
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid #ededed;
+}
+
+.result__name {
+  font-family: "Helvetica", sans-serif;
+  margin-left: 1em;
+}
+
+.result__thumbnail {
+  width: 25%;
+}
+
 /* ANIMATIONS */
+.fadeIn {
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.fadeOut {
+  animation: fadeOut 0.25s ease-in-out;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
