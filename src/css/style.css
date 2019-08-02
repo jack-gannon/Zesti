@@ -5,6 +5,10 @@ body {
   background-color: #f9f9f9;
 }
 
+.container {
+  width: 90vw;
+}
+
 .search-panel {
   background-color: white;
   width: 90vw;
@@ -184,6 +188,7 @@ body {
 /* RECIPE */
 .recipe__img {
   width: 100%;
+  margin-bottom: 0.5em;
 }
 
 .recipe__title {
@@ -195,17 +200,21 @@ body {
 }
 
 .recipe__info {
+  margin-bottom: 0.75em;
   font-family: "Helvetica", sans-serif;
   color: #9d9d9d;
 }
 
 .social-icons {
   display: flex;
+  margin-bottom: 2em;
 }
 
 .social-icon {
   border: 1px solid pink;
   width: 2em;
+  transition: all 0.125s ease-in-out;
+  margin-right: 0.5em;
 }
 
 .social-icon:hover {
@@ -223,6 +232,42 @@ body {
 
 #pinterest-icon {
   fill: #e60023;
+}
+
+/* INGREDIENTS */
+.ingredients {
+  font-family: "Helvetica", sans-serif;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.instruction__header {
+  font-size: 1.25em;
+  font-weight: 900;
+}
+
+.ingredient {
+  text-transform: capitalize;
+  margin-top: 1em;
+}
+
+/* DIRECTIONS */
+.directions {
+  font-family: "Helvetica", sans-serif;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.directions__step {
+  margin-top: 1em;
+}
+
+.step__text {
+  margin-top: 1em;
+  font-size: 0.9em;
+  line-height: 1.6em;
+  font-weight: 500;
+  color: #3f3f3f;
 }
 
 /* ANIMATIONS */
