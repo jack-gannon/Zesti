@@ -6,7 +6,12 @@ const Results = props => {
     <div className="search-results">
       {props.results ? (
         props.results.map((item, index) => (
-          <Result name={item.strMeal} key={index} img={item.strMealThumb} />
+          <Result
+            name={item.strMeal}
+            img={item.strMealThumb}
+            id={item.idMeal}
+            key={index}
+          />
         ))
       ) : (
         <p>No Results</p>

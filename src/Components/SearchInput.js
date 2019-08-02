@@ -1,6 +1,7 @@
 import React from "react";
 import TextInput from "./TextInput";
 import DropdownWithLabel from "./DropdownWithLabel";
+import { Link } from "@reach/router";
 
 const SearchInput = props => {
   return (
@@ -40,10 +41,14 @@ const SearchInput = props => {
       ) : (
         <></>
       )}
-
-      <button onClick={props.handleSearchRequest} className="search-panel__btn">
-        Search
-      </button>
+      <Link to="/results">
+        <button
+          onClick={props.handleSearchRequest}
+          className="search-panel__btn"
+        >
+          Search
+        </button>
+      </Link>
     </div>
   );
 };

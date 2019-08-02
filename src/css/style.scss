@@ -194,7 +194,6 @@ body {
   align-items: center;
   background-color: #fff;
   border-radius: 2px;
-  border: 1px solid $light;
 }
 
 .result__name {
@@ -204,6 +203,51 @@ body {
 
 .result__thumbnail {
   width: 25%;
+}
+
+/* RECIPE */
+
+.recipe__img {
+  width: 100%;
+}
+
+.recipe__title {
+  margin-bottom: 0.25em;
+  font-size: 2em;
+  font-weight: 600;
+  font-family: $font-stack;
+  color: $darkest;
+}
+
+.recipe__info {
+  font-family: $font-stack;
+  color: $dark;
+}
+
+.social-icons {
+  display: flex;
+}
+
+.social-icon {
+  border: 1px solid pink;
+  width: 2em;
+}
+
+.social-icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#twitter-icon {
+  fill: #1da1f2;
+}
+
+#facebook-icon {
+  fill: #3b5998;
+}
+
+#pinterest-icon {
+  fill: #e60023;
 }
 
 /* ANIMATIONS */

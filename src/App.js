@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import SearchPanel from "./Components/SearchPanel";
 import Results from "./Pages/Results";
+import Recipe from "./Pages/Recipe";
+import { Link, Router } from "@reach/router";
 
 const App = () => {
   const [results, setResults] = useState(false);
@@ -46,19 +48,23 @@ const App = () => {
 
   return (
     <div>
-      Zesti!
-      <SearchPanel
-        setResults={setResults}
-        criteria={criteria}
-        setCriteria={setCriteria}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        handleSearchRequest={handleSearchRequest}
-        categories={categories}
-        regions={regions}
-        onChange={handleTextChange}
-      />
-      <Results results={results} />
+      <Link to="/">Zesti!</Link>
+      <Router>
+        <SearchPanel
+          setResults={setResults}
+          criteria={criteria}
+          setCriteria={setCriteria}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          handleSearchRequest={handleSearchRequest}
+          categories={categories}
+          regions={regions}
+          onChange={handleTextChange}
+          path="/"
+        />
+        <Results results={results} path="/results" />
+        <Recipe path="/recipe/:id" />
+      </Router>
     </div>
   );
 };
