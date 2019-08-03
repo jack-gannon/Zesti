@@ -12,7 +12,7 @@ const Tabs = props => {
             className={item === props.active ? "tab--active" : "tab--inactive"}
           >
             {item}
-            <svg width="100%" height=".5em">
+            <svg width="100%">
               <rect height=".25em"></rect>
             </svg>
           </button>

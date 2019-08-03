@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import SocialIcons from "../Components/SocialIcons";
 import Tabs from "../Components/Tabs";
+import Loader from "../Components/Loader";
 import Ingredients from "../Components/Ingredients";
 import Directions from "../Components/Directions";
+import { Link } from "@reach/router";
 
 const Recipe = props => {
   const [recipeData, setRecipeData] = useState("");
@@ -36,21 +38,24 @@ const Recipe = props => {
 
   return (
     <div>
+      <Link to="/results">Back</Link>
       {isLoading ? (
-        "Loading..."
+        <Loader />
       ) : (
-        <div className="recipe">
-          <div className="recipe-details">
+        <article className="recipe">
+          <div className="recipe-main">
             <img
               src={recipeData.strMealThumb}
               alt={recipeData.strMeal}
               className="recipe__img"
             />
-            <h1 className="recipe__title">{recipeData.strMeal}</h1>
-            <p className="recipe__info">
-              {recipeData.strCategory} | {recipeData.strArea}
-            </p>
-            <SocialIcons />
+            <div className="recipe-details">
+              <h1 className="recipe__title">{recipeData.strMeal}</h1>
+              <p className="recipe__info">
+                {recipeData.strCategory} | {recipeData.strArea}
+              </p>
+              <SocialIcons />
+            </div>
           </div>
           <div className="recipe-instructions-mobile">
             <Tabs
@@ -58,13 +63,23 @@ const Recipe = props => {
               action={setActive}
               active={active}
             />
+            {active === "Ingredients" ? (
+              <Ingredients ingredients={ingredients} />
+            ) : (
+              <Directions
+                link={recipeData.strYoutube}
+                directions={recipeData.strInstructions.split(/\r\n/g)}
+              />
+            )}
+          </div>
+          <div className="recipe-instructions-desktop">
             <Ingredients ingredients={ingredients} />
             <Directions
+              link={recipeData.strYoutube}
               directions={recipeData.strInstructions.split(/\r\n/g)}
             />
           </div>
-          <div className="recipe-instructions-desktop"></div>
-        </div>
+        </article> //
       )}
     </div>
   );

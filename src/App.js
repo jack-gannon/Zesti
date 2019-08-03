@@ -6,7 +6,7 @@ import Recipe from "./Pages/Recipe";
 import { Link, Router } from "@reach/router";
 
 const App = () => {
-  const [results, setResults] = useState(false);
+  const [results, setResults] = useState([]);
   const [criteria, setCriteria] = useState("Recipe");
   const [searchValue, setSearchValue] = useState("");
   const [categories, setCategories] = useState([]);
