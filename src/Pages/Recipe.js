@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SocialIcons from "../Components/SocialIcons";
+import ControlPanel from "../Components/ControlPanel";
 import Tabs from "../Components/Tabs";
 import Loader from "../Components/Loader";
 import Ingredients from "../Components/Ingredients";
@@ -42,43 +43,57 @@ const Recipe = props => {
       {isLoading ? (
         <Loader />
       ) : (
-        <article className="recipe">
-          <div className="recipe-main">
+        <article className="recipe-container">
+          <header className="recipe-header">
             <img
               src={recipeData.strMealThumb}
               alt={recipeData.strMeal}
-              className="recipe__img"
+              className="recipe-header__img"
             />
-            <div className="recipe-details">
-              <h1 className="recipe__title">{recipeData.strMeal}</h1>
-              <p className="recipe__info">
+            <div className="recipe-header__details">
+              <h1 className="recipe-header__title">{recipeData.strMeal}</h1>
+              <p className="recipe-header__info">
                 {recipeData.strCategory} | {recipeData.strArea}
               </p>
-              <SocialIcons />
+              <ControlPanel />
             </div>
-          </div>
-          <div className="recipe-instructions-mobile">
-            <Tabs
-              items={["Ingredients", "Directions"]}
-              action={setActive}
-              active={active}
-            />
-            {active === "Ingredients" ? (
-              <Ingredients ingredients={ingredients} />
-            ) : (
-              <Directions
-                link={recipeData.strYoutube}
-                directions={recipeData.strInstructions.split(/\r\n/g)}
-              />
-            )}
-          </div>
-          <div className="recipe-instructions-desktop">
-            <Ingredients ingredients={ingredients} />
-            <Directions
-              link={recipeData.strYoutube}
-              directions={recipeData.strInstructions.split(/\r\n/g)}
-            />
-          </div>
+          </header>
+          <main className="recipe-main">
+            <section className="recipe-instructions">
+              <div className="recipe-instructions-mobile">
+                <Tabs
+                  items={["Ingredients", "Directions"]}
+                  action={setActive}
+                  active={active}
+                />
+                {active === "Ingredients" ? (
+                  <Ingredients ingredients={ingredients} />
+                ) : (
+                  <Directions
+                    link={recipeData.strYoutube}
+                    directions={recipeData.strInstructions.split(/\r\n/g)}
+                  />
+                )}
+              </div>
+              <div className="recipe-instructions-desktop">
+                <Ingredients ingredients={ingredients} />
+                <Directions
+                  link={recipeData.strYoutube}
+                  directions={recipeData.strInstructions.split(/\r\n/g)}
+                />
+              </div>
+            </section>
+            <section className="recipe-tags">
+              <h3 className="instruction__header">Tags</h3>
+              {recipeData.strTags
+                ? recipeData.strTags.split(",").map((tag, index) => (
+                    <p key={index} className="recipe__tag">
+                      {tag}
+                    </p>
+                  ))
+                : "No tags"}
+            </section>
+          </main>
         </article> //
       )}
     </div>

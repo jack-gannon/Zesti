@@ -6,15 +6,6 @@ const Directions = props => {
     <div className="directions">
       <h3 className="instruction__header">Directions</h3>
 
-      <a
-        className="directions__yt-link"
-        href={props.link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Watch on YouTube
-      </a>
-
       {props.directions
         .filter(step => step.length > 0)
         .map((step, index) => (

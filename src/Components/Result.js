@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "@reach/router";
+import ResultThumb from "./ResultThumb";
 
 const Result = props => {
   return (
     <Link to={`/recipe/${props.id}`}>
       <div className="search-result">
-        <img
-          className="result__thumbnail"
-          src={props.img}
-          alt={props.name}
-        ></img>
+        <ResultThumb
+          image={{
+            alt: props.name,
+            src: props.img,
+            placeholderSrc: "../img/placeholder.png"
+          }}
+        />
         <h4 className="result__name">{props.name}</h4>
         <p></p>
       </div>
