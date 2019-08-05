@@ -592,18 +592,18 @@ body {
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .recipe-container {
+  .recipe-main {
     display: block;
     width: 860px;
-    margin-left: calc(420px + 2em);
+    margin-left: calc(380px + 3em);
   }
 
   .recipe-header {
     top: 3em;
-    left: 2em;
+    left: 3em;
     position: fixed;
     flex-direction: column;
-    width: 420px;
+    width: 380px;
     padding: 0em;
   }
 
@@ -612,6 +612,10 @@ body {
   }
 
   .recipe-instructions {
+    padding: 2em;
+  }
+
+  .recipe-tags {
     padding: 2em;
   }
 
