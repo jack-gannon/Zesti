@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import ResultThumb from "./ResultThumb";
+import PlaceholderImg from "./PlaceholderImg";
 
 const Result = props => {
   return (
@@ -10,7 +11,7 @@ const Result = props => {
           image={{
             alt: props.name,
             src: props.img,
-            placeholderSrc: "../img/placeholder.png"
+            placeholder: PlaceholderImg
           }}
         />
         <h4 className="result__name">{props.name}</h4>

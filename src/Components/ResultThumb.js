@@ -10,7 +10,8 @@ const ResultThumb = ({ image }) => {
         src={image.src}
         className="result__thumbnail-img"
         effect="opacity"
-        height="100%"
+        height="84px"
+        width="100%"
         placeholderSrc={image.src}
       ></LazyLoadImage>
     </div>

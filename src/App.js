@@ -38,7 +38,9 @@ const App = () => {
     }
     fetch(`https://www.themealdb.com/api/json/v1/1/${query}${searchValue}`)
       .then(response => response.json())
-      .then(data => setResults(data.meals.map(item => item)))
+      .then(data =>
+        data.meals ? setResults(data.meals.map(item => item)) : setResults([])
+      )
       .catch(error => console.log(error));
   };
 
@@ -48,7 +50,9 @@ const App = () => {
 
   return (
     <div>
-      <Link to="/">Zesti!</Link>
+      <Link to="/" onClick={() => setResults([])}>
+        Zesti!
+      </Link>
       <Router>
         <SearchPanel
           setResults={setResults}
@@ -62,7 +66,7 @@ const App = () => {
           onChange={handleTextChange}
           path="/"
         />
-        <Results results={results} path="/results" />
+        <Results results={results} path="/results" setResults={setResults} />
         <Recipe path="/recipe/:id" />
       </Router>
     </div>

@@ -221,7 +221,9 @@ body {
 }
 
 .result__thumbnail-img {
-  width: 100%;
+  width: 84px;
+  height: 84px;
+  background-color: #eaeaea;
 }
 
 .recipe-container {

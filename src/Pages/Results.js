@@ -4,7 +4,7 @@ import Result from "../Components/Result";
 const Results = props => {
   return (
     <div className="search-results">
-      {props.results ? (
+      {props.results.length >= 1 ? (
         props.results.map(item => (
           <Result
             name={item.strMeal}
