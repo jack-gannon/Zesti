@@ -1,6 +1,7 @@
 import React from "react";
 import TextInput from "./TextInput";
-import DropdownWithLabel from "./DropdownWithLabel";
+import DSTextInput from "./DSTextInput";
+import DSDropdown from "./DSDropdown";
 import { Link } from "@reach/router";
 
 const SearchInput = props => {
@@ -14,7 +15,7 @@ const SearchInput = props => {
           onChange={props.onChange}
         />
       ) : props.active === "Category" ? (
-        <DropdownWithLabel
+        <DSDropdown
           label="Category"
           id="category-input"
           action={props.action}
@@ -23,14 +24,15 @@ const SearchInput = props => {
           className={props.active === "Category" ? "fadeIn" : "fadeOut"}
         />
       ) : props.active === "Ingredient" ? (
-        <TextInput
-          label="ingredient-name"
-          id="recipe-input"
-          className={props.active === "Ingredient" ? "fadeIn" : "fadeOut"}
+        <DSTextInput
+          label="Ingredient"
+          items={props.allIngredients}
           onChange={props.onChange}
+          action={props.action}
+          className={props.active === "Ingredient" ? "fadeIn" : "fadeOut"}
         />
       ) : props.active === "Region" ? (
-        <DropdownWithLabel
+        <DSDropdown
           label="Region"
           id="region-input"
           action={props.action}

@@ -34,13 +34,17 @@ const Dropdown = props => {
         )}
       </svg>
       {isOpen ? (
-        <div className="dropdown-contents">
+        <div className="dropdown-contents" aria-expanded={isOpen}>
           <ul>
             {props.items.length > 0
               ? props.items.map((item, index) => {
                   //Map array of props items (objects) to display dropdown items
                   return (
-                    <li key={index} className="dropdown-item">
+                    <li
+                      key={index}
+                      className="dropdown-item"
+                      aria-labelledby={props.labelledBy}
+                    >
                       <button onClick={() => handleSelection(item)}>
                         {item}
                       </button>

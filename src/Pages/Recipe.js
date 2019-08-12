@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import SocialIcons from "../Components/SocialIcons";
 import ControlPanel from "../Components/ControlPanel";
 import Tabs from "../Components/Tabs";
 import Loader from "../Components/Loader";

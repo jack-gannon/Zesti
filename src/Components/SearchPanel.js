@@ -8,21 +8,24 @@ const SearchPanel = props => {
     props.setSearchValue("");
   };
   return (
-    <div className="search-panel">
-      <Tabs
-        items={["Recipe", "Category", "Ingredient", "Region"]}
-        action={handleTabSelect}
-        active={props.criteria}
-      />
+    <div className="container">
+      <div className="search-panel">
+        <Tabs
+          items={["Recipe", "Category", "Ingredient", "Region"]}
+          action={handleTabSelect}
+          active={props.criteria}
+        />
 
-      <SearchInput
-        active={props.criteria}
-        action={props.setSearchValue}
-        handleSearchRequest={props.handleSearchRequest}
-        categories={props.categories}
-        regions={props.regions}
-        onChange={props.onChange}
-      />
+        <SearchInput
+          active={props.criteria}
+          action={props.setSearchValue}
+          handleSearchRequest={props.handleSearchRequest}
+          categories={props.categories}
+          regions={props.regions}
+          onChange={props.onChange}
+          allIngredients={props.allIngredients}
+        />
+      </div>
     </div>
   );
 };
