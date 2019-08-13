@@ -15,7 +15,11 @@ const Result = props => {
           }}
         />
         <h4 className="result__name">{props.name}</h4>
-        <p></p>
+        <button className="result__bookmark">
+          <svg>
+            <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+          </svg>
+        </button>
       </div>
     </Link>
   );

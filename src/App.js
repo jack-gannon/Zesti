@@ -4,10 +4,14 @@ import SearchPanel from "./Components/SearchPanel";
 import Results from "./Pages/Results";
 import Recipe from "./Pages/Recipe";
 import { Link, Router } from "@reach/router";
+import Bookmarks from "./Pages/Bookmarks";
 import DSDropdown from "./Components/DSDropdown";
 
 const App = () => {
   const [results, setResults] = useState([]);
+  const [bookmarks, setBookmarks] = useState(
+    JSON.parse(localStorage.getItem("bookmarks")) || []
+  );
   const [allIngredients, setAllIngredients] = useState([]);
   const [criteria, setCriteria] = useState("Recipe");
   const [searchValue, setSearchValue] = useState("");
@@ -34,7 +38,17 @@ const App = () => {
       )
       .catch(error => console.log(error));
     fetch("https://www.themealdb.com/api/json/v1/1/list.php?r=list");
-  }, []);
+    localStorage.setItem("bookmarks", JSON.stringify([...bookmarks]));
+  }, [bookmarks]);
+
+  const addBookmark = recipeObj => {
+    setBookmarks([...bookmarks, recipeObj]);
+    console.log(`${recipeObj} was added`);
+  };
+
+  const removeBookmark = recipeId => {
+    setBookmarks([...bookmarks.filter(item => item.id !== recipeId)]);
+  };
 
   const handleSearchRequest = () => {
     let query = "";
@@ -84,8 +98,9 @@ const App = () => {
           setResults={setResults}
           searchValue={searchValue}
         />
-        <Recipe path="/recipe/:id" />
+        <Recipe path="/recipe/:id" addBookmark={addBookmark} />
       </Router>
+      <Bookmarks bookmarks={bookmarks} removeBookmark={removeBookmark} />
     </div>
   );
 };

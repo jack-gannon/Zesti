@@ -54,7 +54,15 @@ const Recipe = props => {
               <p className="recipe-header__info">
                 {recipeData.strCategory} | {recipeData.strArea}
               </p>
-              <ControlPanel />
+              <ControlPanel
+                addBookmark={() =>
+                  props.addBookmark({
+                    name: recipeData.strMeal,
+                    id: recipeData.idMeal,
+                    img: recipeData.strMealThumb
+                  })
+                }
+              />
             </div>
           </header>
           <main className="recipe-main">
