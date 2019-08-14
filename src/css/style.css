@@ -45,6 +45,8 @@ body {
   background-color: white;
   width: 100%;
   margin: auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 8px 8px;
 }
 
 .search-panel__btn {
@@ -98,7 +100,7 @@ body {
   width: 100%;
   overflow: scroll;
   background-color: #fff;
-  box-shadow: 0px 2px 8px #ededed;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.125s ease-in-out;
 }
 
@@ -143,7 +145,7 @@ body {
   max-height: 40vh;
   background-color: #fff;
   overflow: scroll;
-  box-shadow: 0px 8px 18px #ededed;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-input__item {
@@ -197,7 +199,7 @@ body {
 
 .tabs button:focus {
   outline: 0px;
-  box-shadow: 0px 2px 8px #cfcfcf;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .tabs button svg {
@@ -230,12 +232,126 @@ body {
   width: 0%;
 }
 
+.navbar {
+  position: fixed;
+  display: flex;
+  z-index: 1;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+}
+
+.navbar__links--desktop {
+  display: none;
+}
+
+.navbar__menu-toggle {
+  width: 4.5em;
+  height: 4.5em;
+  background-color: #fff;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__menu-toggle:focus {
+  outline: none;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__menu-toggle svg {
+  stroke: #666;
+  stroke-width: 2px;
+  width: 100%;
+}
+
+.navbar__menu-toggle span {
+  font-size: 2.5em;
+  line-height: 0.75em;
+  text-align: center;
+  color: #666;
+  animation: fadeIn 0.125s ease-in-out;
+}
+
+.navbar__menu-links--hide {
+  display: none;
+}
+
+.navbar__menu-links--show {
+  position: absolute;
+  display: block;
+  z-index: -2;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  background-color: #fff;
+  animation: fadeIn 0.125s ease-in-out;
+}
+
+.navbar__menu-links--show li {
+  margin-top: 6em;
+}
+
+.navbar__menu-link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Helvetica", sans-serif;
+  font-weight: 800;
+  font-size: 1.4em;
+}
+
+.navbar__menu-link p {
+  margin-left: 0.25em;
+}
+
+.navbar__menu-links--show li svg {
+  display: inline-block;
+  fill: none;
+  stroke: #3f3f3f;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.hero {
+  font-family: "Helvetica", sans-serif;
+  background-image: url("../img/bg_mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: -20vh;
+}
+
+.hero header {
+  color: #fff;
+  padding: 20vh 1em 8vh 1em;
+  text-align: center;
+}
+
+.hero__header {
+  font-size: 3em;
+  font-weight: 700;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero__subheader {
+  margin: 1em auto auto auto;
+  width: 90%;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .results-panel {
   width: 100vw;
   font-family: "Helvetica", sans-serif;
   padding: 2em 0em 1em 1em;
   background-color: #fff;
-  box-shadow: 0px 2px 4px #ededed;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .results-panel__count {
@@ -274,8 +390,9 @@ body {
 
 .result__name {
   font-family: "Helvetica", sans-serif;
+  text-transform: capitalize;
   margin-left: 1em;
-  width: 60%;
+  width: 50%;
 }
 
 .result__thumbnail-container {
@@ -291,13 +408,12 @@ body {
 .result__bookmark {
   position: absolute;
   top: 0.5em;
-  right: 2em;
-  width: 2em;
-}
-
-.result__bookmark svg {
-  fill: none;
-  stroke: #ededed;
+  right: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0px;
+  fill: #fa8451;
+  stroke: #fa8451;
   stroke-width: 2px;
   stroke-linejoin: round;
 }
@@ -353,7 +469,7 @@ body {
   width: 33%;
   background-color: #fff;
   border-radius: 32px;
-  box-shadow: 0px 1px 4px #ededed;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .control-panel__btn {
@@ -363,12 +479,17 @@ body {
   padding: 0.5em;
 }
 
-.recipe-header__control-panel button svg {
-  opacity: 0.6;
-  width: 100%;
+.control-panel__bookmark-icon--active {
+  fill: #fa8451;
+  stroke: #fa8451;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+}
+
+.control-panel__bookmark-icon--inactive {
   fill: none;
-  stroke: #9d9d9d;
-  stroke-width: 1px;
+  stroke: #cfcfcf;
+  stroke-width: 2px;
   stroke-linejoin: round;
 }
 
@@ -523,14 +644,33 @@ body {
 }
 
 .recipe__tag {
-  background-color: #ededed;
-  font-size: 0.75em;
-  color: #666;
   display: inline-block;
-  border-radius: 1em;
   padding: 0.5em 1em 0.5em 1em;
   margin-right: 0.5em;
   margin-bottom: 1em;
+  border-radius: 1em;
+  font-size: 0.75em;
+  color: #666;
+  background-color: #ededed;
+}
+
+.bookmarks {
+  padding-top: 6em;
+}
+
+.bookmark {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: "Helvetica", sans-serif;
+  background-color: #fff;
+}
+
+.bookmark__img {
+  border-radius: 100%;
+  flex-basis: 2%;
+  width: 4em;
 }
 
 .fadeIn {
@@ -644,7 +784,7 @@ body {
 
   .search-result:hover {
     transform: translateY(-0.5em);
-    box-shadow: 0px 2px 8px #cfcfcf;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .search-result:hover .result__thumbnail-img {

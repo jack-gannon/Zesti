@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import SearchPanel from "./Components/SearchPanel";
+import Home from "./Pages/Home";
 import Results from "./Pages/Results";
 import Recipe from "./Pages/Recipe";
+import NavBar from "./Components/NavBar";
 import { Link, Router } from "@reach/router";
 import Bookmarks from "./Pages/Bookmarks";
-import DSDropdown from "./Components/DSDropdown";
 
 const App = () => {
   const [results, setResults] = useState([]);
@@ -75,11 +75,9 @@ const App = () => {
 
   return (
     <div>
-      <Link to="/" onClick={() => setResults([])}>
-        Zesti!
-      </Link>
+      <NavBar setResults={setResults} />
       <Router>
-        <SearchPanel
+        <Home
           setResults={setResults}
           criteria={criteria}
           setCriteria={setCriteria}
@@ -97,10 +95,20 @@ const App = () => {
           path="/results"
           setResults={setResults}
           searchValue={searchValue}
+          bookmarks={bookmarks}
         />
-        <Recipe path="/recipe/:id" addBookmark={addBookmark} />
+        <Recipe
+          path="/recipe/:id"
+          addBookmark={addBookmark}
+          removeBookmark={removeBookmark}
+          bookmarks={bookmarks}
+        />
+        <Bookmarks
+          bookmarks={bookmarks}
+          removeBookmark={removeBookmark}
+          path="/bookmarks"
+        />
       </Router>
-      <Bookmarks bookmarks={bookmarks} removeBookmark={removeBookmark} />
     </div>
   );
 };

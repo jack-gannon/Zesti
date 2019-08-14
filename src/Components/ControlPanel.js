@@ -24,9 +24,14 @@ const ControlPanel = props => {
       <button
         id="control-panel__bookmark-btn"
         className="control-panel__btn"
-        onClick={props.addBookmark}
+        onClick={props.isBookmarked ? props.removeBookmark : props.addBookmark}
       >
-        <svg viewBox="0 0 32 32">
+        <svg
+          viewBox="0 0 32 32"
+          className={`control-panel__bookmark-icon${
+            props.isBookmarked ? "--active" : "--inactive"
+          }`}
+        >
           <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
         </svg>
       </button>

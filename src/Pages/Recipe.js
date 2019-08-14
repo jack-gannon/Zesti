@@ -7,6 +7,7 @@ import Directions from "../Components/Directions";
 import { Link } from "@reach/router";
 
 const Recipe = props => {
+  const [isBookmarked, setBookmark] = useState(false);
   const [recipeData, setRecipeData] = useState("");
   const [isLoading, setLoadState] = useState(true);
   const [active, setActive] = useState("Ingredients");
@@ -17,7 +18,14 @@ const Recipe = props => {
       .then(data => setRecipeData(data.meals[0]))
       .then(() => setLoadState(false))
       .catch(error => console.log(error));
-  }, []);
+    props.bookmarks.length > 0
+      ? props.bookmarks.map(bookmark =>
+          bookmark.id === props.id
+            ? setBookmark(true)
+            : console.log(bookmark.id)
+        )
+      : null;
+  }, [props.bookmarks, props.id]);
 
   function IngredientPair(ingredient, unit) {
     this.ingredient = ingredient;
@@ -55,6 +63,9 @@ const Recipe = props => {
                 {recipeData.strCategory} | {recipeData.strArea}
               </p>
               <ControlPanel
+                removeBookmark={() => (
+                  props.removeBookmark(recipeData.idMeal), setBookmark(false)
+                )}
                 addBookmark={() =>
                   props.addBookmark({
                     name: recipeData.strMeal,
@@ -62,6 +73,7 @@ const Recipe = props => {
                     img: recipeData.strMealThumb
                   })
                 }
+                isBookmarked={isBookmarked}
               />
             </div>
           </header>

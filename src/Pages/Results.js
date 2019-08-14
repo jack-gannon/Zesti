@@ -15,6 +15,7 @@ const Results = props => {
                 img={item.strMealThumb}
                 id={item.idMeal}
                 key={item.idMeal}
+                bookmarks={props.bookmarks}
               />
             ))
           ) : (
