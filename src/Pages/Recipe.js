@@ -45,77 +45,89 @@ const Recipe = props => {
   let ingredients = handleIngredients(recipeData);
 
   return (
-    <div>
-      <Link to="/results">Back</Link>
+    <>
       {isLoading ? (
         <Loader />
       ) : (
-        <article className="recipe-container">
-          <header className="recipe-header">
-            <img
-              src={recipeData.strMealThumb}
-              alt={recipeData.strMeal}
-              className="recipe-header__img"
-            />
-            <div className="recipe-header__details">
-              <h1 className="recipe-header__title">{recipeData.strMeal}</h1>
-              <p className="recipe-header__info">
-                {recipeData.strCategory} | {recipeData.strArea}
-              </p>
-              <ControlPanel
-                removeBookmark={() => (
-                  props.removeBookmark(recipeData.idMeal), setBookmark(false)
-                )}
-                addBookmark={() =>
-                  props.addBookmark({
-                    name: recipeData.strMeal,
-                    id: recipeData.idMeal,
-                    img: recipeData.strMealThumb
-                  })
-                }
-                isBookmarked={isBookmarked}
+        <>
+          <div className="container" style={{ border: "1px solid pink" }}>
+            <nav className="recipe__breadcrumb">
+              <Link to="/">Home</Link>/<Link to="/results">Search Results</Link>
+              /<p> {recipeData.strMeal}</p>
+            </nav>
+            <nav className="recipe__back-mobile">
+              <Link to="/results" className="recipe__back-btn">
+                Back
+              </Link>
+            </nav>
+          </div>
+          <article className="recipe-container">
+            <header className="recipe-header">
+              <img
+                src={recipeData.strMealThumb}
+                alt={recipeData.strMeal}
+                className="recipe-header__img"
               />
-            </div>
-          </header>
-          <main className="recipe-main">
-            <section className="recipe-instructions">
-              <div className="recipe-instructions-mobile">
-                <Tabs
-                  items={["Ingredients", "Directions"]}
-                  action={setActive}
-                  active={active}
+              <div className="recipe-header__details">
+                <h1 className="recipe-header__title">{recipeData.strMeal}</h1>
+                <p className="recipe-header__info">
+                  {recipeData.strCategory} | {recipeData.strArea}
+                </p>
+                <ControlPanel
+                  removeBookmark={() => (
+                    props.removeBookmark(recipeData.idMeal), setBookmark(false)
+                  )}
+                  addBookmark={() =>
+                    props.addBookmark({
+                      name: recipeData.strMeal,
+                      id: recipeData.idMeal,
+                      img: recipeData.strMealThumb
+                    })
+                  }
+                  isBookmarked={isBookmarked}
                 />
-                {active === "Ingredients" ? (
+              </div>
+            </header>
+            <main className="recipe-main">
+              <section className="recipe-instructions">
+                <div className="recipe-instructions-mobile">
+                  <Tabs
+                    items={["Ingredients", "Directions"]}
+                    action={setActive}
+                    active={active}
+                  />
+                  {active === "Ingredients" ? (
+                    <Ingredients ingredients={ingredients} />
+                  ) : (
+                    <Directions
+                      link={recipeData.strYoutube}
+                      directions={recipeData.strInstructions.split(/\r\n/g)}
+                    />
+                  )}
+                </div>
+                <div className="recipe-instructions-desktop">
                   <Ingredients ingredients={ingredients} />
-                ) : (
                   <Directions
                     link={recipeData.strYoutube}
                     directions={recipeData.strInstructions.split(/\r\n/g)}
                   />
-                )}
-              </div>
-              <div className="recipe-instructions-desktop">
-                <Ingredients ingredients={ingredients} />
-                <Directions
-                  link={recipeData.strYoutube}
-                  directions={recipeData.strInstructions.split(/\r\n/g)}
-                />
-              </div>
-            </section>
-            <section className="recipe-tags">
-              <h3 className="instruction__header">Tags</h3>
-              {recipeData.strTags
-                ? recipeData.strTags.split(",").map((tag, index) => (
-                    <p key={index} className="recipe__tag">
-                      {tag}
-                    </p>
-                  ))
-                : "No tags"}
-            </section>
-          </main>
-        </article> //
+                </div>
+              </section>
+              <section className="recipe-tags">
+                <h3 className="instruction__header">Tags</h3>
+                {recipeData.strTags
+                  ? recipeData.strTags.split(",").map((tag, index) => (
+                      <p key={index} className="recipe__tag">
+                        {tag}
+                      </p>
+                    ))
+                  : "No tags"}
+              </section>
+            </main>
+          </article>
+        </>
       )}
-    </div>
+    </>
   );
 };
 
