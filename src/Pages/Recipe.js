@@ -50,7 +50,7 @@ const Recipe = props => {
         <Loader />
       ) : (
         <>
-          <div className="container" style={{ border: "1px solid pink" }}>
+          <div className="container">
             <nav className="recipe__breadcrumb">
               <Link to="/">Home</Link>/<Link to="/results">Search Results</Link>
               /<p> {recipeData.strMeal}</p>

@@ -9,6 +9,7 @@ import Bookmarks from "./Pages/Bookmarks";
 
 const App = () => {
   const [results, setResults] = useState([]);
+  const [isLoading, setLoading] = useState(true);
   const [bookmarks, setBookmarks] = useState(
     JSON.parse(localStorage.getItem("bookmarks")) || []
   );
@@ -66,6 +67,7 @@ const App = () => {
       .then(data =>
         data.meals ? setResults(data.meals.map(item => item)) : setResults([])
       )
+      .then(() => setLoading(false))
       .catch(error => console.log(error));
   };
 
@@ -91,6 +93,7 @@ const App = () => {
           path="/"
         />
         <Results
+          isLoading={isLoading}
           results={results}
           path="/results"
           setResults={setResults}
