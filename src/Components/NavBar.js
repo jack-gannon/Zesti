@@ -12,7 +12,18 @@ const NavBar = props => {
         Zesti!
       </Link>
       <div className="navbar__links--desktop">
-        <Link to="/bookmarks">Bookmarks</Link>
+        <ul>
+          <li>
+            <Link to="/bookmarks">
+              <span className="navbar__menu-link">
+                <svg viewBox="0 0 32 32">
+                  <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+                </svg>
+                <p>Saved</p>
+              </span>
+            </Link>
+          </li>
+        </ul>
       </div>
       <div className="navbar__links--mobile">
         <button
@@ -37,7 +48,7 @@ const NavBar = props => {
                 <svg viewBox="0 0 32 32">
                   <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
                 </svg>
-                <p>Bookmarks</p>
+                <p>Saved</p>
               </span>
             </Link>
           </li>

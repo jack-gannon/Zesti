@@ -71,7 +71,7 @@ const Recipe = props => {
               <div className="recipe-header__details">
                 <h1 className="recipe-header__title">{recipeData.strMeal}</h1>
                 <p className="recipe-header__info">
-                  {recipeData.strCategory} | {recipeData.strArea}
+                  {recipeData.strCategory} • {recipeData.strArea}
                 </p>
                 <ControlPanel
                   removeBookmark={() => (
@@ -85,6 +85,7 @@ const Recipe = props => {
                     })
                   }
                   isBookmarked={isBookmarked}
+                  videoLink={recipeData.strYoutube}
                 />
               </div>
             </header>

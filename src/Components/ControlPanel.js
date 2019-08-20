@@ -19,15 +19,19 @@ const ControlPanel = props => {
         </svg>
         {props.isBookmarked ? "Saved" : "Save"}
       </button>
+
       <button id="control-panel__yt-btn" className="control-panel__btn">
-        <svg viewBox="0 0 32 32" id="control-panel__yt-icon">
-          <g>
-            <circle cx="16" cy="16" r="15" />
-          </g>
-          <polygon points="11.5,21 11.5,8.9 22.5,16 11.5,23.1 " />
-        </svg>
-        Watch
+        <a href={props.videoLink} target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 32 32" id="control-panel__yt-icon">
+            <g>
+              <circle cx="16" cy="16" r="15" />
+            </g>
+            <polygon points="11.5,21 11.5,8.9 22.5,16 11.5,23.1 " />
+          </svg>
+          Watch
+        </a>
       </button>
+
       <button id="control-panel__share-btn" className="control-panel__btn">
         <svg viewBox="0 0 32 32" id="control-panel__share-icon">
           <circle cx="20.5" cy="8.5" r="3" />
