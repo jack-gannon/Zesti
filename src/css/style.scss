@@ -85,22 +85,30 @@ body {
   border-radius: 0px 0px 8px 8px;
 }
 
-.search-panel__btn {
+.search-input__btn {
   margin-top: 2em;
-  width: 100%;
+  flex-basis: 100%;
   height: 3em;
+  padding: 1em 1.5em;
   border: none;
   border-radius: 2px;
   color: #fff;
   background-color: $primary;
+  text-align: center;
   font-size: 1em;
   font-weight: 500;
 }
 
 .search-input {
+  display: flex;
+  flex-direction: column;
   padding: 1em;
   margin-top: 2em;
   width: 100%;
+}
+
+.search-input__input {
+  flex-basis: 100%;
 }
 
 .text-input__input {
@@ -114,7 +122,7 @@ body {
 .text-input__input input {
   border: none;
   margin-left: 0.5em;
-  width: calc(100% - 0.5em);
+  width: 100%;
   height: 100%;
   font-size: 1.2em;
   background-color: transparent;
@@ -162,6 +170,7 @@ body {
 }
 
 .dropdown-input__input {
+  position: relative;
   width: 100%;
   height: 1.7em;
   background-color: transparent;
@@ -344,6 +353,7 @@ body {
 }
 
 .navbar__menu-link p {
+  position: relative;
   margin-left: 0.25em;
 }
 
@@ -384,6 +394,9 @@ body {
   margin: 1em auto auto auto;
   width: 90%;
   text-shadow: 0px 2px 8px $shadow1;
+  font-weight: 200;
+  font-family: $font-stack-serif;
+  font-style: italic;
 }
 
 //------------------------------------------- RESULTS --------------------------------------------------//
@@ -778,15 +791,67 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 0.5em;
   width: 100%;
+  border: 1px solid $light;
+  border-radius: 2em 2px 2px 2em;
   font-family: $font-stack;
   background-color: #fff;
 }
 
+.bookmark__contents {
+  flex-basis: 85%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bookmark__text {
+  text-transform: capitalize;
+  margin-left: 1em;
+}
+
 .bookmark__img {
+  border: 1px solid $light;
   border-radius: 100%;
   flex-basis: 2%;
   width: 4em;
+}
+
+.bookmark__remove-btn {
+  flex-basis: 5%;
+  font-size: 1.5em;
+  background-color: transparent;
+  color: $medium;
+  border: none;
+}
+//-------------------------------------------- EMPTY STATE ---------------------------------------------------//
+
+.empty-state {
+  width: 100%;
+  font-family: $font-stack;
+}
+
+.empty-state__img {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.empty-state__main-text {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+  font-weight: 800;
+  text-align: center;
+  color: $darker;
+}
+
+.empty-state__sub-text {
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+  color: $dark;
 }
 
 //------------------------------------------- ANIMATIONS ---------------------------------------------------//
@@ -990,6 +1055,13 @@ body {
 //------------------------------------------- MEDIUM DEVICES  ---------------------------------------------------//
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .hero {
+    background-image: url("../img/bg_desktop.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+  }
   .hero__header {
     font-size: 3.5em;
   }
@@ -1001,6 +1073,7 @@ body {
   .search-panel {
     width: 70%;
   }
+
   .recipe-header {
     align-items: center;
   }
@@ -1024,6 +1097,7 @@ body {
 
   .navbar {
     background-color: #fff;
+    box-shadow: 0px 1px 8px $shadow1;
   }
 
   .navbar__links--desktop {
@@ -1036,6 +1110,12 @@ body {
 
   .navbar__menu-link {
     font-size: 1.2em;
+    opacity: 0.8;
+  }
+
+  .navbar__menu-link:hover {
+    opacity: 1;
+    cursor: pointer;
   }
 
   .navbar__menu-link svg {
@@ -1046,6 +1126,59 @@ body {
     stroke-linejoin: round;
     width: 1.2em;
     height: 1.2em;
+  }
+
+  .empty-state__img {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .empty-state__main-text {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 0.5em;
+  }
+
+  .empty-state__sub-text {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .bookmark {
+    border-radius: 8em 4px 4px 8em;
+    align-items: flex-start;
+  }
+
+  .bookmark__contents {
+    flex-basis: 60%;
+    transition: all 0.125s ease-in-out;
+  }
+
+  .bookmark__contents:hover {
+    opacity: 0.7;
+  }
+
+  .bookmark__contents:hover .bookmark__text {
+    transform: translateX(2em);
+  }
+
+  .bookmark__img {
+    flex-basis: 20%;
+  }
+
+  .bookmark__text {
+    font-weight: 600;
+    transition: all 0.125s ease-in-out;
+  }
+
+  .bookmark__remove-btn {
+    margin-top: 0.5em;
+    font-size: 2.2em;
+  }
+
+  .bookmark__remove-btn:hover {
+    color: $dark;
+    cursor: pointer;
   }
 }
 
@@ -1069,13 +1202,104 @@ body {
     font-size: 1.5em;
   }
 
-  .tabs button {
-    font-size: 1em;
-    padding: 16px;
-  }
-
   .search-panel {
     width: 70%;
+    background-color: transparent;
+    padding-bottom: 15vh;
+    box-shadow: none;
+  }
+
+  .search-panel .tabs button {
+    position: relative;
+    font-size: 1em;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    padding: 16px;
+    border-radius: 2em;
+  }
+
+  .search-panel .tabs button:focus {
+    box-shadow: 0px 0px 8px #fff;
+  }
+
+  .search-panel .tab--active {
+    opacity: 1;
+    background-color: #fff;
+  }
+
+  .search-panel .tab--active::before {
+    content: " ";
+    position: absolute;
+    width: 0.75em;
+    height: 0.75em;
+    top: 1.2em;
+    left: 1em;
+    border-radius: 100%;
+    background-color: $primary;
+  }
+
+  .search-panel .tab--active svg rect {
+    display: none;
+  }
+
+  .search-panel .tab--inactive {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 2em;
+    opacity: 0.9;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+  }
+
+  .search-panel .text-input__input {
+    height: 2em;
+  }
+
+  .search-panel .dropdown-input__input {
+    height: 2.2em;
+    background-color: #fff;
+  }
+
+  .search-panel .dropdown-input__icon {
+    top: 2.7em;
+    right: 12px;
+  }
+
+  .search-panel .dropdown-input__contents {
+    max-height: 20vh;
+  }
+
+  .search-input {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: transparent;
+    padding: 0.5%;
+  }
+
+  .search-panel .search-input__input {
+    flex-basis: 82%;
+    background-color: none;
+  }
+
+  .search-panel .search-input__input label {
+    color: #fff;
+    font-size: 0.8em;
+  }
+
+  .search-input__btn {
+    margin-top: 0em;
+    flex-basis: 17%;
+    height: 2.7em;
+    padding: 0.9em 1em;
+    border-radius: 2px;
+    color: #fff;
+  }
+
+  .empty-state__img {
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 10vh;
   }
 
   .recipe-container {

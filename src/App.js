@@ -77,7 +77,7 @@ const App = () => {
 
   return (
     <div>
-      <NavBar setResults={setResults} />
+      <NavBar setResults={setResults} bookmarks={bookmarks} />
       <Router>
         <Home
           setResults={setResults}
