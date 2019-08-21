@@ -9,7 +9,7 @@ const SearchPanel = props => {
   };
   return (
     <div className="container">
-      <div className="search-panel">
+      <div className="search-panel fadeIn">
         <Tabs
           items={["Recipe", "Category", "Ingredient", "Region"]}
           action={handleTabSelect}

@@ -52,6 +52,7 @@ const App = () => {
   };
 
   const handleSearchRequest = () => {
+    setLoading(true);
     let query = "";
     if (criteria === "Recipe") {
       query = "search.php?s=";

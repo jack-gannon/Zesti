@@ -102,6 +102,7 @@ body {
 .autocomplete-items {
   position: absolute;
   width: 100%;
+  z-index: 2;
 }
 
 .autocomplete-items--open {
@@ -363,12 +364,53 @@ body {
   font-style: italic;
 }
 
+.home__section-header {
+  font-family: "Georgia", serif;
+  font-weight: 700;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2em;
+  font-size: 1.2em;
+}
+
+.features {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100%;
+  z-index: -1;
+  margin-top: 8vh;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4em;
+}
+
+.feature__header {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 700;
+  line-height: 1.4em;
+  color: #3f3f3f;
+  text-align: center;
+}
+
+.feature__description {
+  text-align: center;
+  font-family: "Helvetica", sans-serif;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  color: #666;
+}
+
 .results-panel {
   width: 100vw;
   font-family: "Helvetica", sans-serif;
-  padding: 2em 0em 1em 1em;
+  padding: 6em 0em 1em 1em;
   background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ededed;
 }
 
 .results-panel__count {
@@ -779,6 +821,7 @@ body {
 .empty-state__img {
   width: 80%;
   margin-left: 10%;
+  margin-top: 10vh;
 }
 
 .empty-state__main-text {
@@ -849,6 +892,28 @@ body {
 }
 /* Small devices (portrait tablets and large phones, */
 @media only screen and (min-width: 500px) {
+  /* - FEATURES - */
+  .home__section-header {
+    margin-top: 3em;
+  }
+
+  .feature {
+    flex-direction: row;
+  }
+
+  .feature__details {
+    margin-left: 2em;
+    text-align: left;
+  }
+
+  .feature__header {
+    text-align: left;
+  }
+
+  .feature__description {
+    text-align: left;
+  }
+
   /* - RECIPE - */
   .recipe__back-mobile {
     display: none;
@@ -944,13 +1009,12 @@ body {
   }
 
   .search-result {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: block;
+    position: relative;
     background-color: #fff;
     border-radius: 4px 4px 4px 16px;
     border: 1px solid #cfcfcf;
-    transition: all 0.125s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
   .search-result:hover {
@@ -963,24 +1027,39 @@ body {
   }
 
   .result__name {
+    height: 40%;
+    width: calc(100% - 1em);
+    bottom: 0px;
+    left: -1em;
     padding: 1em 0.5em 1em 0.5em;
     font-weight: 600;
+    font-size: 1em;
   }
 
   .result__thumbnail-container {
     width: 100%;
+    height: auto;
   }
 
   .result__thumbnail-img {
-    border-radius: 4px 4px 0px 8px;
     width: 100%;
     height: auto;
+    object-fit: contain;
+    border-radius: 4px 4px 4px 16px;
     opacity: 1;
-    transition: all 0.125s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
   .search-result:hover .result__thumbnail-img {
-    opacity: 0.5;
+    opacity: 0.75;
+  }
+
+  .result__bookmark {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    padding: 1em;
   }
 }
 /* Medium devices (landscape tablets, 768px and up) */
@@ -1005,6 +1084,46 @@ body {
     width: 70%;
   }
 
+  .home__section-header {
+    margin-top: 3em;
+    font-size: 1.75em;
+  }
+
+  .features {
+    grid-template-columns: 33% 33% 33%;
+    align-items: start;
+  }
+
+  .feature {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .feature__img {
+    width: 30%;
+    margin: auto;
+  }
+
+  .feature__details {
+    text-align: center;
+    width: 65%;
+    margin: auto;
+  }
+
+  .feature__header {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+  }
+
+  .feature__description {
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
   .recipe-header {
     align-items: center;
   }
@@ -1024,6 +1143,10 @@ body {
 
   .search-results {
     grid-template-columns: 33% 33% 33%;
+  }
+
+  .result__name {
+    font-size: 1.2em;
   }
 
   .navbar {
@@ -1229,6 +1352,10 @@ body {
     width: 20%;
     margin-left: 40%;
     margin-top: 10vh;
+  }
+
+  .result__name {
+    font-size: 1.4em;
   }
 
   .recipe-container {
