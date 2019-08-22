@@ -4,12 +4,16 @@ import Home from "./Pages/Home";
 import Results from "./Pages/Results";
 import Recipe from "./Pages/Recipe";
 import NavBar from "./Components/NavBar";
-import { Link, Router } from "@reach/router";
+import { Router } from "@reach/router";
 import Bookmarks from "./Pages/Bookmarks";
+import ShoppingList from "./Pages/ShoppingList";
 
 const App = () => {
   const [results, setResults] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [listItems, setListItems] = useState(
+    JSON.parse(localStorage.getItem("shoppingList")) || []
+  );
   const [bookmarks, setBookmarks] = useState(
     JSON.parse(localStorage.getItem("bookmarks")) || []
   );
@@ -40,7 +44,20 @@ const App = () => {
       .catch(error => console.log(error));
     fetch("https://www.themealdb.com/api/json/v1/1/list.php?r=list");
     localStorage.setItem("bookmarks", JSON.stringify([...bookmarks]));
-  }, [bookmarks]);
+    localStorage.setItem("shoppingList", JSON.stringify([...listItems]));
+  }, [bookmarks, listItems]);
+
+  const addListItem = itemObj => {
+    setListItems([...listItems, itemObj]);
+    console.log(`${itemObj.ingredient} was added`);
+  };
+
+  const removeListItem = itemObj => {
+    setListItems([
+      ...listItems.filter(item => item.ingredient !== itemObj.ingredient)
+    ]);
+    console.log(`${itemObj} was removed`);
+  };
 
   const addBookmark = recipeObj => {
     setBookmarks([...bookmarks, recipeObj]);
@@ -51,8 +68,9 @@ const App = () => {
     setBookmarks([...bookmarks.filter(item => item.id !== recipeId)]);
   };
 
+  //Facilitates search request based on criteria + search input value:
   const handleSearchRequest = () => {
-    setLoading(true);
+    setLoading(true); //Reset Load state
     let query = "";
     if (criteria === "Recipe") {
       query = "search.php?s=";
@@ -72,6 +90,7 @@ const App = () => {
       .catch(error => console.log(error));
   };
 
+  //Sets search value to text input:
   const handleTextChange = e => {
     setSearchValue(e.target.value);
   };
@@ -81,6 +100,7 @@ const App = () => {
       <NavBar setResults={setResults} bookmarks={bookmarks} />
       <Router>
         <Home
+          path="/"
           setResults={setResults}
           criteria={criteria}
           setCriteria={setCriteria}
@@ -91,12 +111,11 @@ const App = () => {
           regions={regions}
           allIngredients={allIngredients}
           onChange={handleTextChange}
-          path="/"
         />
         <Results
+          path="/results"
           isLoading={isLoading}
           results={results}
-          path="/results"
           setResults={setResults}
           searchValue={searchValue}
           bookmarks={bookmarks}
@@ -104,13 +123,21 @@ const App = () => {
         <Recipe
           path="/recipe/:id"
           addBookmark={addBookmark}
+          addListItem={addListItem}
           removeBookmark={removeBookmark}
+          removeListItem={removeListItem}
           bookmarks={bookmarks}
+          listItems={listItems}
         />
         <Bookmarks
+          path="/bookmarks"
           bookmarks={bookmarks}
           removeBookmark={removeBookmark}
-          path="/bookmarks"
+        />
+        <ShoppingList
+          path="/shoppinglist"
+          listItems={listItems}
+          removeListItem={removeListItem}
         />
       </Router>
     </div>

@@ -411,6 +411,12 @@ body {
   font-size: 1.2em;
 }
 
+.home__section-header span {
+  font-weight: 300;
+  padding: 0.25em;
+  color: $medium;
+}
+
 .features {
   position: relative;
   display: grid;
@@ -824,6 +830,12 @@ body {
   background-color: $light;
 }
 
+//------------------------------------------- SHOPPING LIST --------------------------------------------------//
+
+.shopping-list {
+  margin-top: 10vh;
+}
+
 //--------------------------------------------- BOOKMARKS --------------------------------------------------//
 
 .bookmarks {
@@ -1226,7 +1238,12 @@ body {
   }
 
   .navbar__links--desktop {
+    display: block;
+  }
+
+  .navbar__links--desktop ul {
     display: flex;
+    flex-direction: row;
   }
 
   .navbar__links--mobile {
@@ -1312,6 +1329,7 @@ body {
 @media only screen and (min-width: 992px) {
   .container {
     width: 90vw;
+    max-width: 1490px;
     margin: auto;
   }
 

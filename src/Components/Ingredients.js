@@ -1,4 +1,5 @@
 import React from "react";
+import Ingredient from "./Ingredient";
 
 const Ingredients = props => {
   return (
@@ -6,11 +7,14 @@ const Ingredients = props => {
       <h3 className="instruction__header">Ingredients</h3>
       <ul className="ingredients-list">
         {props.ingredients.map((item, index) => (
-          <li key={index} className="ingredient">
-            <span className="ingredient__unit">{item.unit}</span>
-            {" - "}
-            <span className="ingredient__ingredient">{item.ingredient}</span>
-          </li>
+          <Ingredient
+            item={item}
+            index={index}
+            key={index}
+            listItems={props.listItems}
+            addListItem={props.addListItem}
+            removeListItem={props.removeListItem}
+          />
         ))}
       </ul>
     </div>

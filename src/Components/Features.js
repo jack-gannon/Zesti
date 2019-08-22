@@ -4,7 +4,9 @@ import Placeholder from "../img/placeholder.png";
 const Features = () => {
   return (
     <div className="container">
-      <h3 className="home__section-header">Features</h3>
+      <h3 className="home__section-header">
+        <span>–</span>Features<span>–</span>
+      </h3>
       <section className="features">
         <div className="feature">
           <img className="feature__img" src={Placeholder} alt="placeholder" />

@@ -23,6 +23,16 @@ const NavBar = props => {
               </span>
             </Link>
           </li>
+          <li>
+            <Link to="/shoppinglist">
+              <span className="navbar__menu-link">
+                <svg viewBox="0 0 32 32">
+                  <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+                </svg>
+                <p>Shopping List</p>
+              </span>
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="navbar__links--mobile">

@@ -20,9 +20,7 @@ const Recipe = props => {
       .catch(error => console.log(error));
     props.bookmarks.length > 0
       ? props.bookmarks.map(bookmark =>
-          bookmark.id === props.id
-            ? setBookmark(true)
-            : console.log(bookmark.id)
+          bookmark.id === props.id ? setBookmark(true) : null
         )
       : null;
   }, [props.bookmarks, props.id]);
@@ -39,7 +37,7 @@ const Recipe = props => {
       let unit = `strMeasure${i}`;
       arr.push(new IngredientPair(dataObj[ing], dataObj[unit]));
     }
-    return arr.filter(item => item.ingredient);
+    return arr.filter(item => item.ingredient); //remove empty items
   };
 
   let ingredients = handleIngredients(recipeData);
@@ -98,18 +96,26 @@ const Recipe = props => {
                     active={active}
                   />
                   {active === "Ingredients" ? (
-                    <Ingredients ingredients={ingredients} />
+                    <Ingredients
+                      ingredients={ingredients}
+                      listItems={props.listItems}
+                      addListItem={props.addListItem}
+                      removeListItem={props.removeListItem}
+                    />
                   ) : (
                     <Directions
-                      link={recipeData.strYoutube}
                       directions={recipeData.strInstructions.split(/\r\n/g)}
                     />
                   )}
                 </div>
                 <div className="recipe-instructions-desktop">
-                  <Ingredients ingredients={ingredients} />
+                  <Ingredients
+                    ingredients={ingredients}
+                    listItems={props.listItems}
+                    addListItem={props.addListItem}
+                    removeListItem={props.removeListItem}
+                  />
                   <Directions
-                    link={recipeData.strYoutube}
                     directions={recipeData.strInstructions.split(/\r\n/g)}
                   />
                 </div>
