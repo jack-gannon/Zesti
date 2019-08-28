@@ -720,17 +720,57 @@ body {
 }
 
 .ingredient {
+  display: flex;
+  align-items: center;
   text-transform: capitalize;
-  margin-top: 2em;
+  margin-top: 1em;
   font-size: 0.8em;
   font-weight: 200;
   color: $darkest;
+  padding-bottom: 1em;
   border-bottom: 1px dashed $light;
 }
 
 .ingredient__unit {
   font-weight: 900;
   color: $darkest;
+}
+
+.ingredient__add-item {
+  border-radius: 0.25em;
+  border: none;
+  margin-right: 1em;
+  background: transparent;
+}
+
+.ingredient__add-item:focus {
+  outline: none;
+}
+
+.ingredient__add-item:focus .add-item--active {
+  transform: scale(1.6, 1.6);
+}
+
+.add-item--inactive:focus svg {
+  stroke: $dark;
+}
+
+.add-item--active:focus svg {
+  stroke: $secondary-dark;
+}
+
+.add-item--active svg {
+  width: 2em;
+  fill: none;
+  stroke: $secondary;
+  stroke-width: 1px;
+}
+
+.add-item--inactive svg {
+  width: 2em;
+  fill: none;
+  stroke: $medium;
+  stroke-width: 1px;
 }
 
 /* DIRECTIONS */
@@ -1172,41 +1212,6 @@ body {
     font-size: 1.75em;
   }
 
-  .features {
-    grid-template-columns: 33% 33% 33%;
-    align-items: start;
-  }
-
-  .feature {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
-  .feature__img {
-    width: 30%;
-    margin: auto;
-  }
-
-  .feature__details {
-    text-align: center;
-    width: 65%;
-    margin: auto;
-  }
-
-  .feature__header {
-    text-align: center;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    font-size: 1.2em;
-  }
-
-  .feature__description {
-    text-align: center;
-    font-size: 1em;
-    line-height: 1.5em;
-  }
-
   .recipe-header {
     align-items: center;
   }
@@ -1437,6 +1442,41 @@ body {
     padding: 0.9em 1em;
     border-radius: 2px;
     color: #fff;
+  }
+
+  .features {
+    grid-template-columns: 33% 33% 33%;
+    align-items: start;
+  }
+
+  .feature {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .feature__img {
+    width: 30%;
+    margin: auto;
+  }
+
+  .feature__details {
+    text-align: center;
+    width: 65%;
+    margin: auto;
+  }
+
+  .feature__header {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+  }
+
+  .feature__description {
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.5em;
   }
 
   .empty-state__img {

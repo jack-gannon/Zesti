@@ -9,8 +9,7 @@ const ShoppingList = props => {
           <ul>
             {props.listItems.map((item, index) => (
               <li key={index}>
-                {item.ingredient}
-                {item.unit}
+                {index} - {item.ingredient} - {item.unit}
                 <button onClick={() => props.removeListItem(item)}>
                   &times;
                 </button>

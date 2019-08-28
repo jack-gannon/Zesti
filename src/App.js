@@ -49,14 +49,24 @@ const App = () => {
 
   const addListItem = itemObj => {
     setListItems([...listItems, itemObj]);
-    console.log(`${itemObj.ingredient} was added`);
+    console.log(
+      `${itemObj.ingredient} - ${itemObj.unit} with an id of ${itemObj.id} was added`
+    );
   };
 
   const removeListItem = itemObj => {
     setListItems([
-      ...listItems.filter(item => item.ingredient !== itemObj.ingredient)
+      ...listItems.filter(listItem => {
+        if (
+          listItem.ingredient === itemObj.ingredient &&
+          listItem.unit === itemObj.unit
+        ) {
+          return false;
+        }
+        return true;
+      })
     ]);
-    console.log(`${itemObj} was removed`);
+    console.log(`${itemObj.ingredient} - ${itemObj.unit} was removed`);
   };
 
   const addBookmark = recipeObj => {

@@ -5,7 +5,10 @@ const Ingredient = props => {
   const [isChecked, setChecked] = useState(false);
   useEffect(() => {
     props.listItems.map(listItem =>
-      listItem.ingredient === props.item.ingredient ? setChecked(true) : null
+      listItem.ingredient === props.item.ingredient &&
+      listItem.unit === props.item.unit
+        ? setChecked(true)
+        : null
     );
   }, [props.listItems, props.item]);
   return (

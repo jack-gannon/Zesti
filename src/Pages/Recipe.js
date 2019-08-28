@@ -5,6 +5,7 @@ import Loader from "../Components/Loader";
 import Ingredients from "../Components/Ingredients";
 import Directions from "../Components/Directions";
 import { Link } from "@reach/router";
+import uuidv4 from "uuid";
 
 const Recipe = props => {
   const [isBookmarked, setBookmark] = useState(false);
