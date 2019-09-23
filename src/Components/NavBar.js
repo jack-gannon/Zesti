@@ -20,6 +20,7 @@ const NavBar = props => {
                   <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
                 </svg>
                 <p>Saved</p>
+                <p className="link__item-count">{props.bookmarks.length}</p>
               </span>
             </Link>
           </li>
@@ -30,6 +31,7 @@ const NavBar = props => {
                   <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
                 </svg>
                 <p>Shopping List</p>
+                <p className="link__item-count">{props.listItems.length}</p>
               </span>
             </Link>
           </li>
@@ -60,6 +62,7 @@ const NavBar = props => {
                     <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
                   </svg>
                   <p>Saved</p>
+                  <p className="link__item-count">{props.bookmarks.length}</p>
                 </span>
               </Link>
             </li>
@@ -70,6 +73,7 @@ const NavBar = props => {
                     <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
                   </svg>
                   <p>Shopping List</p>
+                  <p className="link__item-count">{props.listItems.length}</p>
                 </span>
               </Link>
             </li>

@@ -1,6 +1,8 @@
 import React from "react";
 import EmptySaved from "../img/empty_saved.svg";
 import EmptySearch from "../img/empty_search.svg";
+import EmptyList from "../img/empty_list.svg";
+import { Link } from "@reach/router";
 
 const EmptyState = props => {
   return (
@@ -18,6 +20,20 @@ const EmptyState = props => {
             To save a recipe, click on the <b>Save</b> button on a recipe page
           </p>
         </>
+      ) : props.type === "list" ? (
+        <>
+          {/* Empty Shopping List State */}
+          <img
+            src={EmptyList}
+            alt="No search results"
+            className="empty-state__img"
+          />
+          <h1 className="empty-state__main-text">No Saved Ingredients</h1>
+          <p className="empty-state__sub-text">
+            Your shopping list is empty. To add items to your shopping list, add
+            ingredients from a recipe page.
+          </p>
+        </>
       ) : (
         <>
           {/* Empty Search State */}
@@ -31,6 +47,9 @@ const EmptyState = props => {
             We were unable to find what you were looking for. Try searching
             again using a category, or a different search phrase.
           </p>
+          <Link to="/" className="empty-state__back-btn">
+            Back to Search
+          </Link>
         </>
       )}
     </div>

@@ -374,6 +374,18 @@ body {
   height: 1.4em;
 }
 
+.link__item-count {
+  box-sizing: border-box;
+  width: 1.7em;
+  height: 1.75em;
+  padding: 0.35em;
+  border-radius: 50%;
+  font-size: 0.65em;
+  text-align: center;
+  font-weight: 500;
+  background-color: $light;
+}
+
 //-------------------------------------------- HERO --------------------------------------------------//
 
 .hero {
@@ -461,6 +473,24 @@ body {
   padding: 6em 0em 1em 1em;
   background-color: #fff;
   border: 1px solid $light;
+}
+
+.results-panel__back-btn {
+  padding: 0.75em 1.5em;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: $darker;
+  background-color: $light;
+  border-radius: 4px;
+  transition: all 0.125s ease-in-out;
+}
+
+.results-panel__back-btn:hover {
+  opacity: 0.8;
+}
+
+.results-panel__contents {
+  margin-top: 2em;
 }
 
 .results-panel__count {
@@ -756,6 +786,7 @@ body {
 }
 
 .ingredient__add-item {
+  position: relative;
   border-radius: 0.25em;
   border: none;
   margin-right: 1em;
@@ -912,6 +943,10 @@ body {
 
 //------------------------------------------- SHOPPING LIST --------------------------------------------------//
 
+.shopping-list {
+  padding-top: 6em;
+}
+
 .shopping-list__list {
   margin-top: 10vh;
   background-color: #fff;
@@ -925,6 +960,7 @@ body {
   padding: 1em;
   border-bottom: 1px solid $lighter;
   font-family: $font-stack;
+  text-transform: capitalize;
   transition: all 0.25s ease-in-out;
 }
 
@@ -1068,6 +1104,18 @@ body {
   color: $dark;
 }
 
+.empty-state__back-btn {
+  display: inline-block;
+  border: 1px solid $dark;
+  color: $dark;
+  border-radius: 4px;
+  padding: 1em;
+  width: 80%;
+  text-align: center;
+  margin-left: 10%;
+  margin-top: 2em;
+}
+
 //------------------------------------------- ANIMATIONS ---------------------------------------------------//
 
 .fadeIn {
@@ -1120,6 +1168,21 @@ body {
 @keyframes dashIn {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeAndPop {
+  0% {
+    transform: scale(0.7, 0.7);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2, 1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
   }
 }
 
@@ -1387,11 +1450,21 @@ body {
     flex-direction: row;
   }
 
+  .navbar__links--desktop ul li:first-of-type {
+    border-right: 2px solid $light;
+  }
+
+  .navbar__links--desktop .navbar__menu-link {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+
   .navbar__links--mobile {
     display: none;
   }
 
   .navbar__menu-link {
+    position: relative;
     font-size: 1.2em;
     opacity: 0.8;
   }
@@ -1411,6 +1484,11 @@ body {
     height: 1.2em;
   }
 
+  .link__item-count {
+    position: absolute;
+    top: -5px;
+  }
+
   .empty-state__img {
     width: 50%;
     margin-left: 25%;
@@ -1425,6 +1503,12 @@ body {
   .empty-state__sub-text {
     width: 50%;
     margin-left: 25%;
+    line-height: 1.5em;
+  }
+
+  .empty-state__back-btn {
+    width: 40%;
+    margin-left: 30%;
   }
 
   .bookmark {
@@ -1619,6 +1703,11 @@ body {
     width: 20%;
     margin-left: 40%;
     margin-top: 10vh;
+  }
+
+  .empty-state__back-btn {
+    width: 20%;
+    margin-left: 40%;
   }
 
   .result__name {

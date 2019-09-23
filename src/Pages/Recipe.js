@@ -28,6 +28,7 @@ const Recipe = props => {
   function IngredientPair(ingredient, unit) {
     this.ingredient = ingredient;
     this.unit = unit;
+    this.isChecked = false;
   }
 
   let gatherIngredients = dataObj => {

@@ -48,11 +48,15 @@ const App = () => {
   }, [bookmarks, listItems]);
 
   const addListItem = itemObj => {
+    //Adds an item to the shopping list
     setListItems([...listItems, itemObj]);
-    console.log(`${itemObj.ingredient} - ${itemObj.unit} was added`);
+    console.log(
+      `${itemObj.ingredient} - ${itemObj.unit} - ${itemObj.isChecked} was added`
+    );
   };
 
   const removeListItem = itemObj => {
+    //Removes an item from the shopping list
     setListItems([
       ...listItems.filter(listItem => {
         if (
@@ -65,6 +69,23 @@ const App = () => {
       })
     ]);
     console.log(`${itemObj.ingredient} - ${itemObj.unit} was removed`);
+  };
+
+  const checkListItem = itemObj => {
+    //Toggles shopping checklist item
+    setListItems(
+      listItems.map(item => {
+        if (item === itemObj) {
+          return {
+            ...item,
+            isChecked: !itemObj.isChecked
+          };
+        } else {
+          return item;
+        }
+      })
+    );
+    console.log(listItems);
   };
 
   const addBookmark = recipeObj => {
@@ -105,7 +126,11 @@ const App = () => {
 
   return (
     <div>
-      <NavBar setResults={setResults} bookmarks={bookmarks} />
+      <NavBar
+        setResults={setResults}
+        bookmarks={bookmarks}
+        listItems={listItems}
+      />
       <Router>
         <Home
           path="/"
@@ -146,6 +171,7 @@ const App = () => {
           path="/shoppinglist"
           listItems={listItems}
           removeListItem={removeListItem}
+          checkListItem={checkListItem}
         />
       </Router>
     </div>

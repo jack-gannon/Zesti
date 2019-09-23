@@ -23,9 +23,11 @@ const Features = () => {
           <div className="feature__details">
             <h4 className="feature__header">Save Recipes</h4>
             <p className="feature__description">
-              Do you want to save a recipe for later? Click the
-              &quote;Save&quote; button on a recipe to add it to your saved
-              recipes.
+              Save a recipe for later by clicking the{" "}
+              <span style={{ fontWeight: 600, color: "#222" }}>Save</span>{" "}
+              button on a recipe. View saved recipes later by visiting the{" "}
+              <span style={{ fontWeight: 600, color: "#222" }}>Saved</span>{" "}
+              page.
             </p>
           </div>
         </div>
@@ -35,7 +37,11 @@ const Features = () => {
             <h4 className="feature__header">Shopping List</h4>
             <p className="feature__description">
               Make a shopping list with all of the ingredients you require for a
-              dish. View them later by visiting the &quote;List&quote; page.
+              dish. View them later by visiting the{" "}
+              <span style={{ fontWeight: 600, color: "#222" }}>
+                Shopping List
+              </span>{" "}
+              page.
             </p>
           </div>
         </div>
