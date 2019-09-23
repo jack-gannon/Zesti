@@ -5,13 +5,12 @@ import Loader from "../Components/Loader";
 import Ingredients from "../Components/Ingredients";
 import Directions from "../Components/Directions";
 import { Link } from "@reach/router";
-import uuidv4 from "uuid";
 
 const Recipe = props => {
   const [isBookmarked, setBookmark] = useState(false);
   const [recipeData, setRecipeData] = useState("");
   const [isLoading, setLoadState] = useState(true);
-  const [active, setActive] = useState("Ingredients");
+  const [active, setActive] = useState("Ingredients"); //For mobile tabs
 
   useEffect(() => {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${props.id}`)
@@ -31,7 +30,7 @@ const Recipe = props => {
     this.unit = unit;
   }
 
-  let handleIngredients = dataObj => {
+  let gatherIngredients = dataObj => {
     let arr = [];
     for (let i = 1; i < 20; i++) {
       let ing = `strIngredient${i}`;
@@ -41,7 +40,7 @@ const Recipe = props => {
     return arr.filter(item => item.ingredient); //remove empty items
   };
 
-  let ingredients = handleIngredients(recipeData);
+  let ingredients = gatherIngredients(recipeData);
 
   return (
     <>
@@ -49,7 +48,7 @@ const Recipe = props => {
         <Loader />
       ) : (
         <>
-          <div className="container">
+          <div className="recipe-container">
             <nav className="recipe__breadcrumb">
               <Link to="/">Home</Link>/<Link to="/results">Search Results</Link>
               /<p> {recipeData.strMeal}</p>

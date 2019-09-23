@@ -49,9 +49,7 @@ const App = () => {
 
   const addListItem = itemObj => {
     setListItems([...listItems, itemObj]);
-    console.log(
-      `${itemObj.ingredient} - ${itemObj.unit} with an id of ${itemObj.id} was added`
-    );
+    console.log(`${itemObj.ingredient} - ${itemObj.unit} was added`);
   };
 
   const removeListItem = itemObj => {

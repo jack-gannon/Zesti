@@ -51,18 +51,30 @@ const NavBar = props => {
             </svg>
           )}
         </button>
-        <ul className={`navbar__menu-links${isOpen ? "--show" : "--hide"}`}>
-          <li>
-            <Link to="/bookmarks" onClick={handleToggle}>
-              <span className="navbar__menu-link">
-                <svg viewBox="0 0 32 32">
-                  <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
-                </svg>
-                <p>Saved</p>
-              </span>
-            </Link>
-          </li>
-        </ul>
+        <div className={`navbar__menu-links${isOpen ? "--show" : "--hide"}`}>
+          <ul>
+            <li>
+              <Link to="/bookmarks" onClick={handleToggle}>
+                <span className="navbar__menu-link">
+                  <svg viewBox="0 0 32 32">
+                    <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+                  </svg>
+                  <p>Saved</p>
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/shoppinglist" onClick={handleToggle}>
+                <span className="navbar__menu-link">
+                  <svg viewBox="0 0 32 32">
+                    <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+                  </svg>
+                  <p>Shopping List</p>
+                </span>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react";
 import AddItemButton from "./AddItemButton";
 
 const Ingredient = props => {
-  const [isChecked, setChecked] = useState(false);
+  const [isAdded, setAdded] = useState(false);
   useEffect(() => {
     props.listItems.map(listItem =>
       listItem.ingredient === props.item.ingredient &&
       listItem.unit === props.item.unit
-        ? setChecked(true)
+        ? setAdded(true)
         : null
     );
   }, [props.listItems, props.item]);
   return (
     <li key={props.index} className="ingredient">
       <AddItemButton
-        isChecked={isChecked}
-        setChecked={setChecked}
+        isAdded={isAdded}
+        setAdded={setAdded}
         item={props.item}
         listItems={props.listItems}
         addListItem={props.addListItem}

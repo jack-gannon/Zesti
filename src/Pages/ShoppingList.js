@@ -1,25 +1,24 @@
 import React from "react";
 import EmptyState from "../Components/EmptyState";
+import ListItem from "../Components/ListItem";
 
 const ShoppingList = props => {
   return (
     <div className="container">
-      <ul className="shopping-list">
-        {props.listItems.length > 0 ? (
-          <ul>
-            {props.listItems.map((item, index) => (
-              <li key={index}>
-                {index} - {item.ingredient} - {item.unit}
-                <button onClick={() => props.removeListItem(item)}>
-                  &times;
-                </button>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <EmptyState type="bookmarks" />
-        )}
-      </ul>
+      {props.listItems.length > 0 ? (
+        <ul className="shopping-list__list">
+          {props.listItems.map((item, index) => (
+            <ListItem
+              key={item.ingredient + item.unit}
+              index={index}
+              item={item}
+              removeListItem={props.removeListItem}
+            />
+          ))}
+        </ul>
+      ) : (
+        <EmptyState type="bookmarks" />
+      )}
     </div>
   );
 };

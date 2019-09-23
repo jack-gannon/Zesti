@@ -11,7 +11,13 @@ const Directions = props => {
         .map((step, index) => (
           <div className="directions__step" key={index}>
             <StepNumber number={index + 1} />
-            <p className="step__text">{step}</p>
+            <p
+              className={`step__text ${
+                index < 9 ? "step-text--before10" : "step-text--after10"
+              }`}
+            >
+              {step}
+            </p>
           </div>
         ))}
       <div className="directions__step--complete">
