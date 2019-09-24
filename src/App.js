@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Home from "./Pages/Home";
 import Results from "./Pages/Results";
 import Recipe from "./Pages/Recipe";
+import NoResult from "./Pages/NoResult";
 import NavBar from "./Components/NavBar";
 import { Router } from "@reach/router";
 import Bookmarks from "./Pages/Bookmarks";
@@ -173,6 +174,7 @@ const App = () => {
           removeListItem={removeListItem}
           checkListItem={checkListItem}
         />
+        <NoResult default />
       </Router>
     </div>
   );

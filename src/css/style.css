@@ -421,6 +421,12 @@ body {
   color: #666;
 }
 
+.feature__img {
+  width: 72px;
+  opacity: 0.5;
+  margin-bottom: 0.5em;
+}
+
 .results-panel {
   width: 100vw;
   font-family: "Helvetica", sans-serif;
@@ -1688,5 +1694,12 @@ body {
   }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .hero {
+    background-image: url("../img/bg_large.png");
+    background-position: center bottom;
+    background-size: cover;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

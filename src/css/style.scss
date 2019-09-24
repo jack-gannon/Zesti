@@ -465,6 +465,12 @@ body {
   color: $darker;
 }
 
+.feature__img {
+  width: 72px;
+  opacity: 0.5;
+  margin-bottom: 0.5em;
+}
+
 //------------------------------------------- RESULTS --------------------------------------------------//
 
 .results-panel {
@@ -1780,4 +1786,9 @@ body {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+  .hero {
+    background-image: url("../img/bg_large.png");
+    background-position: center bottom;
+    background-size: cover;
+  }
 }

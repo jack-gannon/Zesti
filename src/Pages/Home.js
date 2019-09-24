@@ -7,7 +7,7 @@ const Home = props => {
     <>
       <div className="hero">
         <header>
-          <h1 className="hero__header">Find Recipes with Zezti</h1>
+          <h1 className="hero__header">Find Recipes with Zesto</h1>
           <h2 className="hero__subheader">
             Search hundreds of recipes & ingredients to find what you need.
           </h2>

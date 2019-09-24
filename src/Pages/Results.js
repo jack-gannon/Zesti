@@ -30,7 +30,9 @@ const Results = props => {
           </div>
         </>
       ) : (
-        <EmptyState type="search" />
+        <div className="container">
+          <EmptyState type="search" />
+        </div>
       )}
     </>
   );

@@ -1,5 +1,7 @@
 import React from "react";
-import Placeholder from "../img/placeholder.png";
+import FeaturesSearch from "../img/features_search.svg";
+import FeaturesSave from "../img/features_save.svg";
+import FeaturesList from "../img/features_list.svg";
 
 const Features = () => {
   return (
@@ -9,7 +11,11 @@ const Features = () => {
       </h3>
       <section className="features">
         <div className="feature">
-          <img className="feature__img" src={Placeholder} alt="placeholder" />
+          <img
+            className="feature__img"
+            src={FeaturesSearch}
+            alt="placeholder"
+          />
           <div className="feature__details">
             <h4 className="feature__header">Find Recipes</h4>
             <p className="feature__description">
@@ -19,7 +25,7 @@ const Features = () => {
           </div>
         </div>
         <div className="feature">
-          <img className="feature__img" src={Placeholder} alt="placeholder" />
+          <img className="feature__img" src={FeaturesSave} alt="placeholder" />
           <div className="feature__details">
             <h4 className="feature__header">Save Recipes</h4>
             <p className="feature__description">
@@ -32,7 +38,7 @@ const Features = () => {
           </div>
         </div>
         <div className="feature">
-          <img className="feature__img" src={Placeholder} alt="placeholder" />
+          <img className="feature__img" src={FeaturesList} alt="placeholder" />
           <div className="feature__details">
             <h4 className="feature__header">Shopping List</h4>
             <p className="feature__description">

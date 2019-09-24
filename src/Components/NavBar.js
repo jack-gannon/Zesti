@@ -17,7 +17,7 @@ const NavBar = props => {
             <Link to="/bookmarks">
               <span className="navbar__menu-link">
                 <svg viewBox="0 0 32 32">
-                  <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+                  <polygon points="5.5,3.5 27.5,3.5 27.5,28.5 16.5,21.5 5.5,28.5 " />
                 </svg>
                 <p>Saved</p>
                 <p className="link__item-count">{props.bookmarks.length}</p>
@@ -28,7 +28,12 @@ const NavBar = props => {
             <Link to="/shoppinglist">
               <span className="navbar__menu-link">
                 <svg viewBox="0 0 32 32">
-                  <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+                  <circle cx="6" cy="7" r="2.5" />
+                  <circle cx="6" cy="16" r="2.5" />
+                  <circle cx="6" cy="25" r="2.5" />
+                  <line x1="11" y1="7.5" x2="27" y2="7.5" />
+                  <line x1="11" y1="16.5" x2="27" y2="16.5" />
+                  <line x1="11" y1="25.5" x2="27" y2="25.5" />
                 </svg>
                 <p>Shopping List</p>
                 <p className="link__item-count">{props.listItems.length}</p>
@@ -59,7 +64,7 @@ const NavBar = props => {
               <Link to="/bookmarks" onClick={handleToggle}>
                 <span className="navbar__menu-link">
                   <svg viewBox="0 0 32 32">
-                    <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+                    <polygon points="5.5,3.5 27.5,3.5 27.5,28.5 16.5,21.5 5.5,28.5 " />
                   </svg>
                   <p>Saved</p>
                   <p className="link__item-count">{props.bookmarks.length}</p>
@@ -70,7 +75,12 @@ const NavBar = props => {
               <Link to="/shoppinglist" onClick={handleToggle}>
                 <span className="navbar__menu-link">
                   <svg viewBox="0 0 32 32">
-                    <polygon points="7.5,4.5 24.5,4.5 24.5,27.5 16,20 7.5,27.5 " />
+                    <circle cx="6" cy="7" r="2.5" />
+                    <circle cx="6" cy="16" r="2.5" />
+                    <circle cx="6" cy="25" r="2.5" />
+                    <line x1="11" y1="7.5" x2="27" y2="7.5" />
+                    <line x1="11" y1="16.5" x2="27" y2="16.5" />
+                    <line x1="11" y1="25.5" x2="27" y2="25.5" />
                   </svg>
                   <p>Shopping List</p>
                   <p className="link__item-count">{props.listItems.length}</p>

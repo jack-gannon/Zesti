@@ -10,20 +10,11 @@ const ResultThumb = ({ image }) => {
         src={image.src}
         className="result__thumbnail-img"
         effect="opacity"
-        height="84"
+        height="84px"
         width="100%"
-        placeholderSrc={image.src}
       ></LazyLoadImage>
     </div>
   );
 };
 
 export default ResultThumb;
-
-// .result__thumbnail-container {
-//   width: 25%;
-// }
-
-// .result__thumbnail-img {
-//   width: 100%;
-// }
