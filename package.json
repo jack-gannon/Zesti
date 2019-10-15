@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jack-gannon/Zesti.git"
+    "url": "git+https://github.com/jack-gannon/Zesto.git"
   },
   "author": "Jack Gannon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jack-gannon/Zesti/issues"
+    "url": "https://github.com/jack-gannon/Zesto/issues"
   },
-  "homepage": "https://github.com/jack-gannon/Zesti#readme",
+  "homepage": "https://github.com/jack-gannon/Zesto#readme",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "downshift": "^3.2.12",
