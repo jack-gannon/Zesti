@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "@reach/router";
 import ResultThumb from "./ResultThumb";
-import PlaceholderImg from "./PlaceholderImg";
 
 const Result = props => {
   const [isBookmarked, setBookmarked] = useState(false);
@@ -19,8 +18,7 @@ const Result = props => {
         <ResultThumb
           image={{
             alt: props.name,
-            src: props.img,
-            placeholder: PlaceholderImg
+            src: props.img
           }}
         />
         <h4 className="result__name">{props.name}</h4>
