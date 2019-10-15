@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel src/index.html",
-    "build": "parcel build src/App.js",
+    "start": "parcel dist/index.html",
+    "build": "parcel build src/App.js --public-url ./",
     "sass": "sass src/css/style.scss src/css/style.css",
     "sass-w": "sass --watch src/css/style.scss src/css/style.css"
   },
