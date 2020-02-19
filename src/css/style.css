@@ -13,6 +13,14 @@ body {
   margin: auto;
 }
 
+.loading_logo {
+  width: 8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(50vh - 4rem);
+}
+
 .loader {
   width: 100%;
   margin-top: 50vh;
