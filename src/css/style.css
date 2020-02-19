@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,800&display=swap");
 a {
   text-decoration: none;
   color: #3f3f3f;
@@ -23,8 +24,8 @@ body {
 
 .loader {
   width: 100%;
-  margin-top: 50vh;
-  margin-bottom: 50vh;
+  padding-top: 50vh;
+  padding-bottom: 50vh;
 }
 
 .loader svg {
@@ -248,7 +249,7 @@ body {
 }
 
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0px;
   display: flex;
   z-index: 1;
@@ -260,9 +261,19 @@ body {
 }
 
 .navbar__logo {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
   width: 4rem;
   height: 2rem;
+}
+
+.navbar__logo--hidden {
   display: none;
+}
+
+.navbar__logo--visible {
+  display: block;
 }
 
 .navbar__links--desktop {
@@ -270,8 +281,11 @@ body {
 }
 
 .navbar__menu-toggle {
-  width: 4.5em;
-  height: 4.5em;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  width: 4em;
+  height: 4em;
   background-color: #fff;
   border: none;
   border-radius: 100%;
@@ -333,6 +347,8 @@ body {
 }
 
 .navbar__menu-link .navbar__logo {
+  position: absolute;
+  top: 1rem;
   display: block;
   width: 8rem;
   height: 6rem;
@@ -366,7 +382,7 @@ body {
 }
 
 .hero {
-  font-family: "Helvetica", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-image: url("../img/bg_mobile.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -396,11 +412,12 @@ body {
 }
 
 .home__section-header {
-  font-family: "Georgia", serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: #666;
   text-align: center;
-  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
   margin-top: 4em;
   margin-bottom: 2em;
   font-size: 1.2em;
@@ -488,6 +505,7 @@ body {
 
 .results-panel__value {
   color: #3f3f3f;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.4em;
   font-weight: 800;
 }
@@ -509,7 +527,7 @@ body {
 }
 
 .result__name {
-  font-family: "Helvetica", sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: capitalize;
   margin-left: 1em;
   width: 50%;
@@ -542,6 +560,9 @@ body {
   width: 100vw;
   display: block;
 }
+.recipe-container:first-child {
+  padding-top: 5rem;
+}
 
 .recipe-header {
   display: block;
@@ -566,7 +587,6 @@ body {
 
 .recipe__back-mobile {
   display: block;
-  margin-top: 5em;
   margin-bottom: 1em;
 }
 
@@ -595,7 +615,7 @@ body {
   margin-bottom: 0.25em;
   font-size: 2em;
   font-weight: 600;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #3f3f3f;
   text-transform: capitalize;
 }
@@ -711,7 +731,7 @@ body {
 }
 
 .instruction__header {
-  font-family: "Helvetica", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.25em;
   font-weight: 900;
   margin-bottom: 1em;
@@ -1376,6 +1396,7 @@ body {
   }
 
   .navbar {
+    position: fixed;
     background-color: #fff;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
   }
@@ -1386,6 +1407,9 @@ body {
 
   .navbar__logo {
     display: block;
+    position: relative;
+    top: 0rem;
+    left: 0rem;
     width: 8rem;
   }
   .navbar__logo:hover {

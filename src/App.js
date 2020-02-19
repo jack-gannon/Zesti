@@ -11,7 +11,7 @@ import ShoppingList from "./Pages/ShoppingList";
 
 const App = () => {
   const [results, setResults] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   const [listItems, setListItems] = useState(
     JSON.parse(localStorage.getItem("shoppingList")) || []
   );
@@ -131,6 +131,7 @@ const App = () => {
         setResults={setResults}
         bookmarks={bookmarks}
         listItems={listItems}
+        isLoading={isLoading}
       />
       <Router>
         <Home

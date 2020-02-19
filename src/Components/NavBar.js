@@ -10,7 +10,13 @@ const NavBar = props => {
   return (
     <nav className="navbar">
       <Link to="/" onClick={() => props.setResults([])}>
-        <img src={Logo} alt="Zesto logo" className="navbar__logo" />
+        <img
+          src={Logo}
+          alt="Zesto logo"
+          className={`navbar__logo ${
+            props.isLoading ? "navbar__logo--hidden" : "navbar__logo--visible"
+          }`}
+        />
       </Link>
       <div className="navbar__links--desktop">
         <ul>
@@ -61,13 +67,6 @@ const NavBar = props => {
         </button>
         <div className={`navbar__menu-links${isOpen ? "--show" : "--hide"}`}>
           <ul>
-            <li>
-              <Link to="/" onClick={handleToggle}>
-                <span className="navbar__menu-link">
-                  <img src={Logo} alt="Zesto logo" className="navbar__logo" />
-                </span>
-              </Link>
-            </li>
             <li>
               <Link to="/bookmarks" onClick={handleToggle}>
                 <span className="navbar__menu-link">
