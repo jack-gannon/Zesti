@@ -25,7 +25,10 @@ class DSTextInput extends React.Component {
             >
               {isOpen
                 ? this.props.items
-                    .filter(item => !inputValue || item.includes(inputValue))
+                    .filter(
+                      item =>
+                        !inputValue || item.includes(inputValue.toLowerCase())
+                    )
                     .map((item, index) => (
                       /* eslint-disable */
                       <li

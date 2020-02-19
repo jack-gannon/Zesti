@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "@reach/router";
+import Logo from "../img/logo.svg";
 
 const NavBar = props => {
   const [isOpen, toggleOpen] = useState(false);
@@ -9,7 +10,7 @@ const NavBar = props => {
   return (
     <nav className="navbar">
       <Link to="/" onClick={() => props.setResults([])}>
-        Zesti!
+        <img src={Logo} alt="Zesto logo" className="navbar__logo" />
       </Link>
       <div className="navbar__links--desktop">
         <ul>
@@ -60,6 +61,13 @@ const NavBar = props => {
         </button>
         <div className={`navbar__menu-links${isOpen ? "--show" : "--hide"}`}>
           <ul>
+            <li>
+              <Link to="/" onClick={handleToggle}>
+                <span className="navbar__menu-link">
+                  <img src={Logo} alt="Zesto logo" className="navbar__logo" />
+                </span>
+              </Link>
+            </li>
             <li>
               <Link to="/bookmarks" onClick={handleToggle}>
                 <span className="navbar__menu-link">

@@ -1,6 +1,7 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/opacity.css";
+import Placeholder from "../img/placeholder.png";
 
 const ResultThumb = ({ image }) => {
   return (
@@ -12,6 +13,7 @@ const ResultThumb = ({ image }) => {
         effect="opacity"
         height="84px"
         width="100%"
+        placeholderSrc={Placeholder}
       ></LazyLoadImage>
     </div>
   );
