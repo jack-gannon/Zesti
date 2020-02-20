@@ -13,10 +13,10 @@ const App = () => {
   const [results, setResults] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [listItems, setListItems] = useState(
-    JSON.parse(localStorage.getItem("shoppingList")) || []
+    JSON.parse(localStorage.getItem("shoppingList")) || {}
   );
   const [bookmarks, setBookmarks] = useState(
-    JSON.parse(localStorage.getItem("bookmarks")) || []
+    JSON.parse(localStorage.getItem("bookmarks")) || {}
   );
   const [allIngredients, setAllIngredients] = useState([]);
   const [criteria, setCriteria] = useState("Recipe");
@@ -44,58 +44,44 @@ const App = () => {
       )
       .catch(error => console.log(error));
     fetch("https://www.themealdb.com/api/json/v1/1/list.php?r=list");
-    localStorage.setItem("bookmarks", JSON.stringify([...bookmarks]));
-    localStorage.setItem("shoppingList", JSON.stringify([...listItems]));
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    localStorage.setItem("shoppingList", JSON.stringify(listItems));
   }, [bookmarks, listItems]);
 
+  //Adds an item to the shopping list
   const addListItem = itemObj => {
-    //Adds an item to the shopping list
-    setListItems([...listItems, itemObj]);
-    console.log(
-      `${itemObj.ingredient} - ${itemObj.unit} - ${itemObj.isChecked} was added`
-    );
+    let newList = { ...listItems };
+    newList[itemObj.ingredient] = itemObj;
+    setListItems(newList);
   };
 
+  //Removes an item from the shopping list
   const removeListItem = itemObj => {
-    //Removes an item from the shopping list
-    setListItems([
-      ...listItems.filter(listItem => {
-        if (
-          listItem.ingredient === itemObj.ingredient &&
-          listItem.unit === itemObj.unit
-        ) {
-          return false;
-        }
-        return true;
-      })
-    ]);
-    console.log(`${itemObj.ingredient} - ${itemObj.unit} was removed`);
+    let newList = { ...listItems };
+    delete newList[itemObj.ingredient];
+    setListItems(newList);
   };
 
+  // Checks ingredient item in 'Shopping List' section
   const checkListItem = itemObj => {
-    //Toggles shopping checklist item
-    setListItems(
-      listItems.map(item => {
-        if (item === itemObj) {
-          return {
-            ...item,
-            isChecked: !itemObj.isChecked
-          };
-        } else {
-          return item;
-        }
-      })
-    );
-    console.log(listItems);
+    let newList = { ...listItems };
+    newList[itemObj.ingredient].isChecked = !newList[itemObj.ingredient]
+      .isChecked;
+    setListItems(newList);
   };
 
+  // Adds recipe to 'Saved' section
   const addBookmark = recipeObj => {
-    setBookmarks([...bookmarks, recipeObj]);
-    console.log(`${recipeObj} was added`);
+    let newBookmarks = { ...bookmarks };
+    newBookmarks[recipeObj.id] = recipeObj;
+    setBookmarks(newBookmarks);
   };
 
+  // Removes recipe from 'Saved' section
   const removeBookmark = recipeId => {
-    setBookmarks([...bookmarks.filter(item => item.id !== recipeId)]);
+    let newBookmarks = { ...bookmarks };
+    delete newBookmarks[recipeId];
+    setBookmarks(newBookmarks);
   };
 
   //Facilitates search request based on criteria + search input value:

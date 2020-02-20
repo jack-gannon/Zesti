@@ -6,11 +6,7 @@ const Result = props => {
   const [isBookmarked, setBookmarked] = useState(false);
 
   useEffect(() => {
-    props.bookmarks.length > 0
-      ? props.bookmarks.map(bookmark =>
-          bookmark.id === props.id ? setBookmarked(true) : null
-        )
-      : null;
+    props.bookmarks[props.id] ? setBookmarked(true) : setBookmarked(false);
   }, [props.bookmarks, props.id]);
   return (
     <Link to={`/recipe/${props.id}`}>

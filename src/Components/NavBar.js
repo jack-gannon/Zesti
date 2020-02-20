@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "@reach/router";
-import Logo from "../img/logo.svg";
+import Logo from "./Logo";
 
 const NavBar = props => {
   const [isOpen, toggleOpen] = useState(false);
+
   const handleToggle = () => {
     toggleOpen(!isOpen);
   };
+
+  let bookmarkLength = Object.keys(props.bookmarks).length;
+  let shoppingListLength = Object.keys(props.listItems).length;
+
   return (
     <nav className="navbar">
       <Link to="/" onClick={() => props.setResults([])}>
-        <img
-          src={Logo}
-          alt="Zesto logo"
+        <Logo
           className={`navbar__logo ${
-            props.isLoading ? "navbar__logo--hidden" : "navbar__logo--visible"
+            location.pathname === "/" && !isOpen
+              ? "navbar__logo--light"
+              : "navbar__logo--dark"
           }`}
         />
       </Link>
@@ -27,7 +32,7 @@ const NavBar = props => {
                   <polygon points="5.5,3.5 27.5,3.5 27.5,28.5 16.5,21.5 5.5,28.5 " />
                 </svg>
                 <p>Saved</p>
-                <p className="link__item-count">{props.bookmarks.length}</p>
+                <p className="link__item-count">{bookmarkLength}</p>
               </span>
             </Link>
           </li>
@@ -43,7 +48,7 @@ const NavBar = props => {
                   <line x1="11" y1="25.5" x2="27" y2="25.5" />
                 </svg>
                 <p>Shopping List</p>
-                <p className="link__item-count">{props.listItems.length}</p>
+                <p className="link__item-count">{shoppingListLength}</p>
               </span>
             </Link>
           </li>
@@ -66,6 +71,13 @@ const NavBar = props => {
           )}
         </button>
         <div className={`navbar__menu-links${isOpen ? "--show" : "--hide"}`}>
+          <Logo
+            className={`navbar__logo ${
+              location.pathname === "/" && !isOpen
+                ? "navbar__logo--light"
+                : "navbar__logo--dark"
+            }`}
+          />
           <ul>
             <li>
               <Link to="/bookmarks" onClick={handleToggle}>
@@ -74,7 +86,7 @@ const NavBar = props => {
                     <polygon points="5.5,3.5 27.5,3.5 27.5,28.5 16.5,21.5 5.5,28.5 " />
                   </svg>
                   <p>Saved</p>
-                  <p className="link__item-count">{props.bookmarks.length}</p>
+                  <p className="link__item-count">{bookmarkLength}</p>
                 </span>
               </Link>
             </li>
@@ -90,7 +102,7 @@ const NavBar = props => {
                     <line x1="11" y1="25.5" x2="27" y2="25.5" />
                   </svg>
                   <p>Shopping List</p>
-                  <p className="link__item-count">{props.listItems.length}</p>
+                  <p className="link__item-count">{shoppingListLength}</p>
                 </span>
               </Link>
             </li>

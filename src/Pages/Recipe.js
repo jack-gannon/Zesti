@@ -18,14 +18,10 @@ const Recipe = props => {
       .then(data => setRecipeData(data.meals[0]))
       .then(() => setLoadState(false))
       .catch(error => console.log(error));
-    props.bookmarks.length > 0
-      ? props.bookmarks.map(bookmark =>
-          bookmark.id === props.id ? setBookmark(true) : null
-        )
-      : null;
+    props.bookmarks[props.id] ? setBookmark(true) : setBookmark(false);
   }, [props.bookmarks, props.id]);
 
-  function IngredientPair(ingredient, unit) {
+  function IngredientObject(ingredient, unit) {
     this.ingredient = ingredient;
     this.unit = unit;
     this.isChecked = false;
@@ -36,7 +32,7 @@ const Recipe = props => {
     for (let i = 1; i < 20; i++) {
       let ing = `strIngredient${i}`;
       let unit = `strMeasure${i}`;
-      arr.push(new IngredientPair(dataObj[ing], dataObj[unit]));
+      arr.push(new IngredientObject(dataObj[ing], dataObj[unit]));
     }
     return arr.filter(item => item.ingredient); //remove empty items
   };

@@ -3,12 +3,15 @@ import EmptyState from "../Components/EmptyState";
 import ListItem from "../Components/ListItem";
 
 const ShoppingList = props => {
+  let shoppingListArray = Object.keys(props.listItems).map(
+    i => props.listItems[i]
+  );
   return (
     <div className="container">
       <main className="shopping-list">
-        {props.listItems.length > 0 ? (
+        {shoppingListArray.length > 0 ? (
           <ul className="shopping-list__list">
-            {props.listItems.map((item, index) => (
+            {shoppingListArray.map((item, index) => (
               <ListItem
                 key={item.ingredient + item.unit}
                 index={index}

@@ -4,12 +4,7 @@ import AddItemButton from "./AddItemButton";
 const Ingredient = props => {
   const [isAdded, setAdded] = useState(false);
   useEffect(() => {
-    props.listItems.map(listItem =>
-      listItem.ingredient === props.item.ingredient &&
-      listItem.unit === props.item.unit
-        ? setAdded(true)
-        : null
-    );
+    props.listItems[props.item.ingredient] ? setAdded(true) : setAdded(false);
   }, [props.listItems, props.item]);
   return (
     <li key={props.index} className="ingredient">
